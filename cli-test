@@ -1,0 +1,9 @@
+#!/usr/local/bin/node
+
+var argue = require("./argue.js");
+
+argue.expect("install", "remove");
+console.log(argue.read());
+console.log(argue.values("ver", "name"));
+
+process.exit();

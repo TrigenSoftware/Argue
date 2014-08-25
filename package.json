@@ -1,0 +1,26 @@
+{
+    "name": "argue",
+    "description": "Node-CLI step-by-step arguments handler.",
+    "homepage": "https://github.com/TrigenSoftware/Argue",
+    "version": "0.0.1",
+    "engines": {
+        "node": ">=0.4.0"
+    },
+    "maintainers": [
+        "Dan Onoshko <danpn0404@gmail.com> (dangreen)"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/TrigenSoftware/Argue.git"
+    },
+    "dependencies": {},
+    "bugs": {
+        "url": "https://github.com/TrigenSoftware/Argue/issues"
+    },
+    "keywords": [
+        "cli",
+        "arguments"
+    ],
+    "author": "Dan Onoshko (dangreen)",
+    "license": "GNU GPL v2"
+}
