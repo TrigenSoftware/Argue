@@ -30,12 +30,11 @@ exports.values = function(){
 	return values;
 };
 
-exports.options = function(){
+exports.options = function(names){
 	if(!args[0]) return {};
-	var names = Array.prototype.slice.call(arguments);
 	var arg, options = {};
 
-	for(var name in names) if(name.hasOwnProperty(name)) {
+	for(var name in names) if(names.hasOwnProperty(name)) {
 		options[names[name]] = false;
 	}
 
