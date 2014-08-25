@@ -39,7 +39,7 @@ exports.options = function(){
 		options[names[name]] = false;
 	}
 
-	while(args[0] && args[0].indexOf("-") == 0){
+	while(args[0] && args[0].indexOf("-") == 0 && args[0].indexOf("--") != 0){
 		arg = args.shift().replace("-", "");
 
 		if(!names[arg]) throw new Error("Unexpected key `" + arg + "`.");
