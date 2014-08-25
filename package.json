@@ -1,5 +1,5 @@
 {
-    "name": "argue",
+    "name": "argue-cli",
     "description": "Node-CLI step-by-step arguments handler.",
     "homepage": "https://github.com/TrigenSoftware/Argue",
     "version": "0.0.1",
@@ -22,5 +22,6 @@
         "arguments"
     ],
     "author": "Dan Onoshko (dangreen)",
-    "license": "GNU GPL v2"
+    "license": "GNU GPL v2",
+    "main": "argue.js"
 }
