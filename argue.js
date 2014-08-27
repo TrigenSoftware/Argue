@@ -3,6 +3,8 @@
 var args = process.argv;
 args.splice(0, 2);
 
+exports.args = args;
+
 exports.end = function(){
 	if(args.length != 0) throw new Error("Unexpected argument `" + args[0] + "`.");
 };
