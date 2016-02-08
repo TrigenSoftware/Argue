@@ -1,27 +1,42 @@
 {
-    "name": "argue-cli",
-    "description": "Node-CLI step-by-step arguments handler.",
-    "homepage": "https://github.com/TrigenSoftware/Argue",
-    "version": "0.0.9",
-    "engines": {
-        "node": ">=0.4.0"
-    },
-    "maintainers": [
-        "Dan Onoshko <danpn0404@gmail.com> (dangreen)"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/TrigenSoftware/Argue.git"
-    },
-    "dependencies": {},
-    "bugs": {
-        "url": "https://github.com/TrigenSoftware/Argue/issues"
-    },
-    "keywords": [
-        "cli",
-        "arguments"
-    ],
-    "author": "Dan Onoshko (dangreen)",
-    "license": "GNU GPL v2",
-    "main": "argue.js"
+  "name": "argue-cli",
+  "version": "1.0.0",
+  "description": "Node.js CLI arguments parser.",
+  "main": "lib/lib.js",
+  "scripts": {
+    "test": "mocha -b",
+    "compile": "babel ./src -d ./lib",
+    "prepublish": "npm run compile"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TrigenSoftware/Argue.git"
+  },
+  "keywords": [
+    "strict",
+    "cli",
+    "arguments",
+    "parser",
+    "console",
+    "terminal"
+  ],
+  "author": "dangreen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TrigenSoftware/Argue/issues"
+  },
+  "homepage": "https://github.com/TrigenSoftware/Argue#readme",
+  "devDependencies": {
+    "babel-cli": "^6.4.5",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-stage-0": "^6.3.13",
+    "babel-register": "^6.4.3",
+    "should": "^8.2.1"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-0"
+    ]
+  }
 }

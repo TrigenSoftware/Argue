@@ -1,9 +1,10 @@
 #!/usr/local/bin/node
 
-var argue = require("./argue.js");
+const argue = require("./lib/lib");
 
-argue.expect("install", "remove");
+console.log(argue.options([{"verbose":"v"},{"save":"s"}], [{"output":"o"}]));
+console.log(argue.expect({"install":"i"}, "remove"));
 console.log(argue.read());
-console.log(argue.values("ver", "name"));
+argue.end();
 
-process.exit();
+// process.exit();
