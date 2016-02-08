@@ -42,7 +42,7 @@ strictOptions([
 ])
 ```
 
-### strictOptionsEqual()
+### strictOptionsEqual(...names)
 Strict reading of options with equal sign. 
 If option is provided without value it will interpreted as `true`.
 Returns fullname-value pairs object.
@@ -67,7 +67,7 @@ options([
 ])
 ```
 
-### optionsEqual()
+### optionsEqual(...names)
 Unlimited reading of options with equal sign. 
 If option is provided without value it will interpreted as `true`.
 Returns fullname-value pairs object.
