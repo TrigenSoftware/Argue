@@ -10,9 +10,9 @@ Strict expectation one of given commands.
 Returns full variant of expected argument.
 ```js
 expect(
-	{"install": "i"}, // full name and shirt name, e.g. `npm install`, `npm i` 
-	["update", "u"],  // also full name and shirt name, e.g. `npm update`, `npm u`   
-	"info"            // only one variant of name
+    {"install": "i"}, // full name and shirt name, e.g. `npm install`, `npm i` 
+    ["update", "u"],  // also full name and shirt name, e.g. `npm update`, `npm u`   
+    "info"            // only one variant of name
 );
 ```
 
