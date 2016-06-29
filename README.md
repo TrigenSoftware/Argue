@@ -1,4 +1,4 @@
-[![NPM](https://nodei.co/npm/argue-cli.png?compact=true)](https://nodei.co/npm/argue-cli/)
+[![NPM](https://nodei.co/npm/argue-cli.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/argue-cli/)
 
 # argue-cli
 Node.js CLI arguments parser.
@@ -34,11 +34,11 @@ Strict reading of flags and options.
 Returns fullname-value pairs object.
 ```js
 strictOptions([
-    {"output": "o"}, // full name and shirt name, e.g. `babel --output ./main.js`, `babel -o ./main.js` 
-    ["plugins", "p"] // fullname and shirtname for array, e.g. `babel --plugins commonjs,decorators`, `babel -p commonjs,decorators` 
-],[
     ["another"]      // for flags array is same as object notation
     "verbose"        // only one variant of name, e.g. `babel --verbose`
+], [
+    {"output": "o"}, // full name and shirt name, e.g. `babel --output ./main.js`, `babel -o ./main.js` 
+    ["plugins", "p"] // fullname and shirtname for array, e.g. `babel --plugins commonjs,decorators`, `babel -p commonjs,decorators` 
 ])
 ```
 
@@ -59,11 +59,11 @@ Unlimited reading of flags and options.
 Returns fullname-value pairs object.
 ```js
 options([
-    {"output": "o"}, // full name and shirt name, e.g. `babel compile script.js --output ./main.js`, `babel compile script.js -o ./main.js` 
-    ["plugins", "p"] // fullname and shirtname for array, e.g. `babel --plugins commonjs,decorators compile script.js`, `babel -p commonjs,decorators compile script.js` 
-],[
     ["another"]      // for flags array is same as object notation
     "verbose"        // only one variant of name, e.g. `babel compile script.js --verbose`
+], [
+    {"output": "o"}, // full name and shirt name, e.g. `babel compile script.js --output ./main.js`, `babel compile script.js -o ./main.js` 
+    ["plugins", "p"] // fullname and shirtname for array, e.g. `babel --plugins commonjs,decorators compile script.js`, `babel -p commonjs,decorators compile script.js` 
 ])
 ```
 

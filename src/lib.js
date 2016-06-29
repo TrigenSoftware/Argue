@@ -126,11 +126,11 @@ export function end() {
  *     command-line-app --output test -p es2015,react --verbose
  *
  *     strictOptions([
- *         {"output": "o"}, - fullname and shirtname  
- *         ["plugins", "p"] - fullname and shirtname for array
- *     ],[
  *         ["another"]      - for flags array is same as object notation
  *         "verbose"        - only one variant of name
+ *     ], [
+ *         {"output": "o"}, - fullname and shirtname  
+ *         ["plugins", "p"] - fullname and shirtname for array
  *     ])
  * 
  * @param  {...Object} flagsNames
@@ -140,7 +140,7 @@ export function end() {
 export function strictOptions(flagsNames, optionsNames) {
 
 	if (!argv.length) {
-		return {};
+		return {}
 	}
 
 	var options  = {},
@@ -149,8 +149,8 @@ export function strictOptions(flagsNames, optionsNames) {
 	while (
 		argv.length 
 		&& (
-			argument.indexOf("--") == 0
-			|| argument.indexOf("-") == 0 && argument.length == 2
+			argument.indexOf("--") == 0 || 
+			argument.indexOf("-") == 0 && argument.length == 2
 		)
 	) {
 
@@ -162,7 +162,7 @@ export function strictOptions(flagsNames, optionsNames) {
 			throw new Error(`Unexpected key "${sourceKey}".`);
 		}
 
-		if (optionKey && !flagKey && !argv.length) {
+		if (!flagKey && optionKey && !argv.length) {
 			throw new Error(`Unexpected end of arguments.`);
 		}
 
@@ -224,14 +224,14 @@ export function strictOptionsEqual(...names) {
 	while (
 		argv.length 
 		&& (
-			argument.indexOf("--") == 0 && ~argument.indexOf("=")
-			|| argument.indexOf("-") == 0 && argument.indexOf("=") == 2
+			argument.indexOf("--") == 0 ||
+			argument.indexOf("-")  == 0
 		)
 	) {
 
 		var [ sourceKey, value ] = argv.shift().replace(/^(--|-)/, "").split("="),
 			key                  = findName(sourceKey, names);
-
+		
 		if (!key) {
 			throw new Error(`Unexpected key "${sourceKey}".`);
 		}
@@ -256,14 +256,14 @@ export function strictOptionsEqual(...names) {
 /**
  * Unlimited reading of flags and options.
  *
- *     command-line-app --output test install -p es2015,react babel --verbose true
+ *     command-line-app --output test install -p es2015,react babel --verbose
  *
  *     options([
- *         {"output": "o"}, - fullname and shirtname  
- *         ["plugins", "p"] - fullname and shirtname for array
- *     ],[
  *         ["another"]      - for flags array is same as object notation
  *         "verbose"        - only one variant of name
+ *     ], [
+ *         {"output": "o"}, - fullname and shirtname  
+ *         ["plugins", "p"] - fullname and shirtname for array
  *     ])
  * 
  * @param  {...Object} flagsNames
@@ -297,7 +297,7 @@ export function options(flagsNames, optionsNames) {
 			throw new Error(`Unexpected key "${sourceKey}".`);
 		}
 
-		if (optionKey && !flagKey && i == argc - 1) {
+		if (!flagKey && optionKey && i == argc - 1) {
 			throw new Error(`Unexpected end of arguments.`);
 		}
 
@@ -347,7 +347,7 @@ export function options(flagsNames, optionsNames) {
  *     )
  * 
  * @param  {...Object} names 
- * @return {Object}   fullname-value pairs 
+ * @return {Object}    fullname-value pairs 
  */
 export function optionsEqual(...names) {
 
@@ -362,9 +362,7 @@ export function optionsEqual(...names) {
 
 	for (var i = 0, argument = argvc[i]; i < argc; argument = argvc[++i]) {
 
-		if ((argument.indexOf("--") != 0 || !~argument.indexOf("="))
-			|| (argument.indexOf("-") != 0 || argument.indexOf("=") != 2)
-		) {
+		if (argument.indexOf("-") != 0) {
 			continue;
 		}
 
