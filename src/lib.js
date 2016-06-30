@@ -1,5 +1,5 @@
 
-const argv = process.argv.slice(2, process.argv.length);
+export const argv = process.argv.slice(2, process.argv.length);
 
 function findName(name, names) {
 
