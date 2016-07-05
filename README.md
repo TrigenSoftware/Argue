@@ -34,7 +34,7 @@ Strict reading of flags and options.
 Returns fullname-value pairs object.
 ```js
 strictOptions([
-    ["another"]      // for flags array is same as object notation
+    ["another"],     // for flags array is same as object notation
     "verbose"        // only one variant of name, e.g. `babel --verbose`
 ], [
     {"output": "o"}, // full name and shirt name, e.g. `babel --output ./main.js`, `babel -o ./main.js` 
@@ -48,9 +48,9 @@ If option is provided without value it will interpreted as `true`.
 Returns fullname-value pairs object.
 ```js
 strictOptionsEqual(
-    {"output": "o"}, // full name and shirt name, e.g. `babel --output=./main.js`, `babel -o=./main.js` 
-    ["plugins", "p"] // fullname and shirtname for array, e.g. `babel --plugins=commonjs,decorators`, `babel -p=commonjs,decorators` 
-    "verbose"        // only one variant of name, e.g. `babel --verbose`
+    {"output": "o"},  // full name and shirt name, e.g. `babel --output=./main.js`, `babel -o=./main.js` 
+    ["plugins", "p"], // fullname and shirtname for array, e.g. `babel --plugins=commonjs,decorators`, `babel -p=commonjs,decorators` 
+    "verbose"         // only one variant of name, e.g. `babel --verbose`
 )
 ```
 
@@ -59,7 +59,7 @@ Unlimited reading of flags and options.
 Returns fullname-value pairs object.
 ```js
 options([
-    ["another"]      // for flags array is same as object notation
+    ["another"],     // for flags array is same as object notation
     "verbose"        // only one variant of name, e.g. `babel compile script.js --verbose`
 ], [
     {"output": "o"}, // full name and shirt name, e.g. `babel compile script.js --output ./main.js`, `babel compile script.js -o ./main.js` 
@@ -73,8 +73,8 @@ If option is provided without value it will interpreted as `true`.
 Returns fullname-value pairs object.
 ```js
 optionsEqual(
-    {"output": "o"}, // full name and shirt name, e.g. `babel compile script.js --output=./main.js`, `babel compile script.js -o=./main.js` 
-    ["plugins", "p"] // fullname and shirtname for array, e.g. `babel --plugins=commonjs,decorators compile script.js`, `babel -p=commonjs,decorators compile script.js` 
-    "verbose"        // only one variant of name, e.g. `babel compile script.js --verbose`
+    {"output": "o"},  // full name and shirt name, e.g. `babel compile script.js --output=./main.js`, `babel compile script.js -o=./main.js` 
+    ["plugins", "p"], // fullname and shirtname for array, e.g. `babel --plugins=commonjs,decorators compile script.js`, `babel -p=commonjs,decorators compile script.js` 
+    "verbose"         // only one variant of name, e.g. `babel compile script.js --verbose`
 )
 ```
