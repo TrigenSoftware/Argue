@@ -1,31 +1,36 @@
 
-export const argv = process.argv.slice(2, process.argv.length);
+const argvStartIndex = 2,
+	shirtArgLength = 2;
+
+export const argv = process.argv.slice(argvStartIndex, process.argv.length);
 
 function findName(name, names) {
 
-	var findedName = false,
+	let findedName = false,
 		array      = false;
 
-	names.some((fullName) => {
+	names.some((fullNameOrigin) => {
 
-		var keys, shirtName;
+		let keys = null,
+			fullName = fullNameOrigin,
+			shirtName = null;
 
-		if (typeof fullName == "string") {
+		if (typeof fullName == 'string') {
 
 			if (fullName == name) {
 				findedName = fullName;
 				return true;
 			}
 
-			return false
+			return false;
 		}
 
-		var proto = Object.getPrototypeOf(fullName);
+		const proto = Object.getPrototypeOf(fullName); // eslint-disable-line
 
 		if (proto == Object.prototype) {
 
-			keys      = fullName;
-			fullName  = Object.keys(keys)[0];
+			keys = fullName;
+			fullName = Object.keys(keys)[0];
 			shirtName = keys[fullName];
 
 			if (fullName == name || shirtName == name) {
@@ -38,10 +43,10 @@ function findName(name, names) {
 
 		if (proto == Array.prototype) {
 
-			[ fullName, shirtName ] = fullName;
+			[fullName, shirtName] = fullName;
 
 			if (fullName == name || shirtName == name) {
-				array      = true;
+				array = true;
 				findedName = fullName;
 				return true;
 			}
@@ -66,25 +71,25 @@ export function setArguments(...newArguments) {
 /**
  * Strict expectation one of given commands.
  *
- *     command-line-app install 
+ *     command-line-app install
  *
  *     expect(
- *         {"install": "i"}, - fullname and shirtname  
- *         ["update", "u"],  - also fullname and shirtname  
+ *         {"install": "i"}, - fullname and shirtname
+ *         ["update", "u"],  - also fullname and shirtname
  *         "info"            - only one variant of name
  *     )
- * 
- * @param  {...Object} names 
+ *
+ * @param  {...Object} names    array of expected tokens
  * @return {String}    fullname
  */
 export function expect(...names) {
 
 	if (!argv.length) {
-		throw new Error("Unexpected end of arguments.");
+		throw new Error('Unexpected end of arguments.');
 	}
 
-	var sourceKey = argv.shift(),
-		argument  = findName(sourceKey, names);
+	const sourceKey = argv.shift(),
+		argument = findName(sourceKey, names);
 
 	if (!argument) {
 		throw new Error(`Unexpected argument "${sourceKey}".`);
@@ -96,14 +101,14 @@ export function expect(...names) {
 /**
  * Strict reading of argument.
  *
- *     command-line-app some-value 
- * 
+ *     command-line-app some-value
+ *
  * @return {String} argument
  */
 export function read() {
 
 	if (!argv.length) {
-		throw new Error("Unexpected end of arguments.");
+		throw new Error('Unexpected end of arguments.');
 	}
 
 	return argv.shift();
@@ -111,7 +116,7 @@ export function read() {
 
 /**
  * Strict expectation of end.
- *
+ * @returns {void}
  */
 export function end() {
 
@@ -129,33 +134,34 @@ export function end() {
  *         ["another"]      - for flags array is same as object notation
  *         "verbose"        - only one variant of name
  *     ], [
- *         {"output": "o"}, - fullname and shirtname  
+ *         {"output": "o"}, - fullname and shirtname
  *         ["plugins", "p"] - fullname and shirtname for array
  *     ])
- * 
- * @param  {...Object} flagsNames
- * @param  {...Object} optionsNames
- * @return {Object}    fullname-value pairs 
+ *
+ * @param  {...Object} flagsNames   array of tokens
+ * @param  {...Object} optionsNames array of tokens
+ * @return {Object}    fullname-value pairs
  */
 export function strictOptions(flagsNames, optionsNames) {
 
 	if (!argv.length) {
-		return {}
+		return {};
 	}
 
-	var options  = {},
-		argument = argv[0];
+	const options  = {};
+
+	let argument = argv[0];
 
 	while (
-		argv.length 
+		argv.length
 		&& (
-			argument.indexOf("--") == 0 || 
-			argument.indexOf("-") == 0 && argument.length == 2
+			argument.indexOf('--') == 0
+			|| argument.indexOf('-') == 0 && argument.length == shirtArgLength
 		)
 	) {
 
-		var sourceKey = argv.shift().replace(/^(--|-)/, ""),
-			flagKey   = findName(sourceKey, flagsNames),
+		const sourceKey = argv.shift().replace(/^(--|-)/, ''),
+			flagKey = findName(sourceKey, flagsNames),
 			optionKey = findName(sourceKey, optionsNames);
 
 		if (!flagKey && !optionKey) {
@@ -166,18 +172,18 @@ export function strictOptions(flagsNames, optionsNames) {
 			throw new Error(`Unexpected end of arguments.`);
 		}
 
-		var value = argv[0];
+		let value = argv[0];
 
-		if (optionKey && value.indexOf("--") != 0
-			&& (value.indexOf("-") != 0 && value.length != 2)
+		if (optionKey && value.indexOf('--') != 0
+			&& (value.indexOf('-') != 0 && value.length != shirtArgLength)
 		) {
 
 			argv.shift();
 
 			if (optionKey.isArray) {
-				value = value.split(",").map(element => element.replace(/^['"]|["']$/g, ""));
+				value = value.split(',').map(element => element.replace(/^['"]|["']$/g, ''));
 			} else {
-				value = value.replace(/^['"]|["']$/g, "");
+				value = value.replace(/^['"]|["']$/g, '');
 			}
 
 			options[optionKey.name] = value;
@@ -198,19 +204,19 @@ export function strictOptions(flagsNames, optionsNames) {
 }
 
 /**
- * Strict reading of options with equal sign. 
+ * Strict reading of options with equal sign.
  * If option is provided without value it will interpreted as `true`.
  *
  *     command-line-app --output=test -p=es2015,react --verbose
  *
  *     strictOptionsEqual(
- *         {"output": "o"},  - fullname and shirtname  
+ *         {"output": "o"},  - fullname and shirtname
  *         ["plugins", "p"], - fullname and shirtname for array
  *         "verbose"         - only one variant of name
  *     )
- * 
- * @param  {...Object} names 
- * @return {Object}    fullname-value pairs 
+ *
+ * @param  {...Object} names array of tokens
+ * @return {Object}    fullname-value pairs
  */
 export function strictOptionsEqual(...names) {
 
@@ -218,31 +224,33 @@ export function strictOptionsEqual(...names) {
 		return {};
 	}
 
-	var options  = {},
-		argument = argv[0];
+	const options  = {};
+
+	let argument = argv[0];
 
 	while (
-		argv.length 
+		argv.length
 		&& (
-			argument.indexOf("--") == 0 ||
-			argument.indexOf("-")  == 0
+			argument.indexOf('--') == 0
+			|| argument.indexOf('-') == 0
 		)
 	) {
 
-		var [ sourceKey, value ] = argv.shift().replace(/^(--|-)/, "").split("="),
-			key                  = findName(sourceKey, names);
-		
+		let [sourceKey, value] = argv.shift().replace(/^(--|-)/, '').split('=');
+
+		const key = findName(sourceKey, names);
+
 		if (!key) {
 			throw new Error(`Unexpected key "${sourceKey}".`);
 		}
 
-		if (typeof value == "undefined") {
+		if (typeof value == 'undefined') {
 			value = true;
 		} else
 		if (key.isArray) {
-			value = value.split(",").map(element => element.replace(/^['"]|["']$/g, ""));
+			value = value.split(',').map(element => element.replace(/^['"]|["']$/g, ''));
 		} else {
-			value = value.replace(/^['"]|["']$/g, "");
+			value = value.replace(/^['"]|["']$/g, '');
 		}
 
 		options[key.name] = value;
@@ -262,13 +270,13 @@ export function strictOptionsEqual(...names) {
  *         ["another"]      - for flags array is same as object notation
  *         "verbose"        - only one variant of name
  *     ], [
- *         {"output": "o"}, - fullname and shirtname  
+ *         {"output": "o"}, - fullname and shirtname
  *         ["plugins", "p"] - fullname and shirtname for array
  *     ])
- * 
- * @param  {...Object} flagsNames
- * @param  {...Object} optionsNames
- * @return {Object}    fullname-value pairs 
+ *
+ * @param  {...Object} flagsNames   array of tokens
+ * @param  {...Object} optionsNames array of tokens
+ * @return {Object}    fullname-value pairs
  */
 export function options(flagsNames, optionsNames) {
 
@@ -276,21 +284,21 @@ export function options(flagsNames, optionsNames) {
 		return {};
 	}
 
-	var options = {},
-		argvc   = argv.slice(),
-		argc    = argvc.length,
-		remove  = [];
+	const options = {},
+		argvc = argv.slice(),
+		argc = argvc.length,
+		remove = [];
 
-	for (var i = 0, argument = argvc[i]; i < argc; argument = argvc[++i]) {
+	for (let i = 0, argument = argvc[i]; i < argc; argument = argvc[++i]) {
 
-		if (argument.indexOf("--") != 0
-			&& (argument.indexOf("-") != 0 || argument.length != 2)
+		if (argument.indexOf('--') != 0
+			&& (argument.indexOf('-') != 0 || argument.length != shirtArgLength)
 		) {
 			continue;
 		}
 
-		var sourceKey = argument.replace(/^(--|-)/, ""),
-			flagKey   = findName(sourceKey, flagsNames),
+		const sourceKey = argument.replace(/^(--|-)/, ''),
+			flagKey = findName(sourceKey, flagsNames),
 			optionKey = findName(sourceKey, optionsNames);
 
 		if (!flagKey && !optionKey) {
@@ -301,18 +309,18 @@ export function options(flagsNames, optionsNames) {
 			throw new Error(`Unexpected end of arguments.`);
 		}
 
-		var value = argvc[i + 1];
+		let value = argvc[i + 1];
 
-		if (optionKey && value.indexOf("--") != 0
-			&& (value.indexOf("-") != 0 && value.length != 2)
+		if (optionKey && value.indexOf('--') != 0
+			&& (value.indexOf('-') != 0 && value.length != shirtArgLength)
 		) {
 
 			remove.unshift(i++);
 
 			if (optionKey.isArray) {
-				value = value.split(",").map(element => element.replace(/^['"]|["']$/g, ""));
+				value = value.split(',').map(element => element.replace(/^['"]|["']$/g, ''));
 			} else {
-				value = value.replace(/^['"]|["']$/g, "");
+				value = value.replace(/^['"]|["']$/g, '');
 			}
 
 			options[optionKey.name] = value;
@@ -335,19 +343,19 @@ export function options(flagsNames, optionsNames) {
 }
 
 /**
- * Unlimited reading of with equal sign. 
+ * Unlimited reading of with equal sign.
  * If option is provided without value it will interpreted as `true`.
  *
  *     command-line-app --output=test install -p=es2015,react babel --verbose
  *
  *     optionsEqual(
- *         {"output": "o"},  - fullname and shirtname  
+ *         {"output": "o"},  - fullname and shirtname
  *         ["plugins", "p"], - fullname and shirtname for array
  *         "verbose"         - only one variant of name
  *     )
- * 
- * @param  {...Object} names 
- * @return {Object}    fullname-value pairs 
+ *
+ * @param  {...Object} names array of tokens
+ * @return {Object}    fullname-value pairs
  */
 export function optionsEqual(...names) {
 
@@ -355,33 +363,34 @@ export function optionsEqual(...names) {
 		return {};
 	}
 
-	var options = {},
-		argvc   = argv.slice(),
-		argc    = argvc.length,
-		remove  = [];
+	const options = {},
+		argvc = argv.slice(),
+		argc = argvc.length,
+		remove = [];
 
-	for (var i = 0, argument = argvc[i]; i < argc; argument = argvc[++i]) {
+	for (let i = 0, argument = argvc[i]; i < argc; argument = argvc[++i]) {
 
-		if (argument.indexOf("-") != 0) {
+		if (argument.indexOf('-') != 0) {
 			continue;
 		}
 
-		var [ sourceKey, value ] = argument.replace(/^(--|-)/, "").split("="),
-			key                  = findName(sourceKey, names);
+		let [sourceKey, value] = argument.replace(/^(--|-)/, '').split('=');
+
+		const key = findName(sourceKey, names);
 
 		remove.unshift(i);
-		
+
 		if (!key) {
 			throw new Error(`Unexpected key "${sourceKey}".`);
 		}
 
-		if (typeof value == "undefined") {
+		if (typeof value == 'undefined') {
 			value = true;
 		} else
 		if (key.isArray) {
-			value = value.split(",").map(element => element.replace(/^['"]|["']$/g, ""));
+			value = value.split(',').map(element => element.replace(/^['"]|["']$/g, ''));
 		} else {
-			value = value.replace(/^['"]|["']$/g, "");
+			value = value.replace(/^['"]|["']$/g, '');
 		}
 
 		options[key.name] = value;

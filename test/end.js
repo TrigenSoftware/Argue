@@ -1,11 +1,11 @@
-import * as Argue from '../src/lib';
+import * as Argue from '../src';
 
-describe("end()", () => {
+describe('end()', () => {
 
 	it('should throw error when arguments still exists', () => {
 
 		Argue.setArguments('install');
-		(() => Argue.end()).should.throw(Error, { 
+		(() => Argue.end()).should.throw(Error, {
 			message: `Unexpected argument "install".`
 		});
 	});

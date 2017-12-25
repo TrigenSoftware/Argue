@@ -1,7 +1,27 @@
-[![NPM](https://nodei.co/npm/argue-cli.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/argue-cli/)
-
 # argue-cli
+
+[![NPM version][npm]][npm-url]
+[![Node version][node]][node-url]
+[![Dependency status][deps]][deps-url]
+
+[npm]: https://img.shields.io/npm/v/argue-cli.svg
+[npm-url]: https://www.npmjs.com/package/argue-cli
+
+[node]: https://img.shields.io/node/v/argue-cli.svg
+[node-url]: https://nodejs.org
+
+[deps]: https://img.shields.io/david/TrigenSoftware/argue-cli.svg
+[deps-url]: https://david-dm.org/TrigenSoftware/argue-cli
+
 Node.js CLI arguments parser.
+
+# Install
+
+```bash
+npm i argue-cli
+# or
+yarn add argue-cli
+```
 
 # API
 
@@ -78,3 +98,6 @@ optionsEqual(
     "verbose"         // only one variant of name, e.g. `babel compile script.js --verbose`
 )
 ```
+
+---
+[![NPM](https://nodei.co/npm/argue-cli.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/argue-cli/)

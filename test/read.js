@@ -1,12 +1,12 @@
-import * as Argue from '../src/lib';
+import * as Argue from '../src';
 
-describe("read()", () => {
+describe('read()', () => {
 
 	it('should throw error when no more arguments', () => {
 
 		Argue.setArguments();
-		(() => Argue.read()).should.throw(Error, { 
-			message: "Unexpected end of arguments."
+		(() => Argue.read()).should.throw(Error, {
+			message: 'Unexpected end of arguments.'
 		});
 	});
 

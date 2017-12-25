@@ -1,16 +1,28 @@
 {
   "name": "argue-cli",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Node.js CLI arguments parser.",
-  "main": "lib/lib.js",
-  "scripts": {
-    "test": "mocha -b",
-    "compile": "babel ./src -d ./lib",
-    "prepublish": "npm run compile"
-  },
+  "author": "dangreen",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/TrigenSoftware/Argue.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TrigenSoftware/Argue/issues"
+  },
+  "main": "lib/index.js",
+  "module": "lib/index.es.js",
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "scripts": {
+    "lint": "eslint --cache 'src/**/*.js' 'test/**/*.js'",
+    "test": "npm run lint && nyc mocha -b",
+    "build": "rollup -c",
+    "watch": "rollup -c -w",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "strict",
@@ -20,24 +32,36 @@
     "console",
     "terminal"
   ],
-  "author": "dangreen",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/TrigenSoftware/Argue/issues"
-  },
-  "homepage": "https://github.com/TrigenSoftware/Argue#readme",
   "devDependencies": {
-    "babel-cli": "^6.4.5",
-    "babel-preset-es2015": "^6.3.13",
-    "babel-preset-stage-0": "^6.3.13",
-    "babel-register": "^6.4.3",
-    "should": "^8.2.1",
-    "mocha": "*"
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "coveralls": "^3.0.0",
+    "escope": "^3.6.0",
+    "eslint": "^4.14.0",
+    "eslint-config-trigen": "^2.3.1",
+    "mocha": "^4.0.1",
+    "nyc": "^11.4.1",
+    "rollup": "^0.53.0",
+    "rollup-plugin-babel": "^3.0.3",
+    "rollup-plugin-eslint": "^4.0.0",
+    "should": "^13.1.3"
   },
   "babel": {
     "presets": [
-      "es2015",
+      [
+        "env",
+        {
+          "targets": {
+            "node": "6"
+          }
+        }
+      ],
       "stage-0"
     ]
-  }
+  },
+  "files": [
+    "lib"
+  ]
 }
