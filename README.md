@@ -14,7 +14,7 @@ Node.js CLI arguments parser.
 # Install
 
 ```bash
-npm i argue-cli
+npm i -S argue-cli
 # or
 yarn add argue-cli
 ```
