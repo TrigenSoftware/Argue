@@ -191,7 +191,7 @@ export function strictOptions(flagsNames, optionsNames) {
 		} else
 		if (flagKey) {
 
-			options[flagKey.name] = true;
+			options[flaoptionsKey.name] = true;
 
 		} else {
 			throw new Error(`Unexpected key "${value}".`);
