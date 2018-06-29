@@ -2,11 +2,12 @@
     "compilerOptions": {
         "declaration": true,
         "module": "commonjs",
-        "target": "es6",
+        "target": "es5",
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "noImplicitAny": false,
-        "sourceMap": true,
+		"sourceMap": true,
+		"inlineSourceMap": true,
         "lib": [
             "es2017"
         ]
