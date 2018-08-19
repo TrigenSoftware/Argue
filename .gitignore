@@ -34,11 +34,14 @@ node_modules
 .node_repl_history
 
 # OS X stuff
-**/.DS_Store
-**/._*
+.DS_Store
+._*
 
 # Some caches
 .eslintcache
 
 # Compiled dist
 lib
+
+# Rollup
+.rpt2_cache

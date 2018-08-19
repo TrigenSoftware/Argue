@@ -18,21 +18,10 @@ const plugins = [
 	commonjs(),
 	globals()
 ];
-const dependencies = [].concat(
-	Object.keys(pkg.dependencies),
-	Object.keys(pkg.peerDependencies)
-);
-
-function external(id) {
-	return dependencies.some(_ =>
-		_ == id || id.indexOf(`${_}/`) == 0
-	);
-}
 
 export default [{
 	input:  'src/index.ts',
 	plugins,
-	external,
 	output: [{
 		file:      pkg.main,
 		format:    'cjs',
