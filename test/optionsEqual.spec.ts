@@ -7,27 +7,25 @@ describe('optionsEqual()', () => {
 		it('should throw error when given option is doesn\'t expected', () => {
 
 			Argue.setArguments('--input');
-			(() => Argue.optionsEqual('output')).should.throw(Error, {
-				message: 'Unexpected key "input".'
-			});
+			expect(() => Argue.optionsEqual('output')).toThrow(/Unexpected key "input"/);
 		});
 
 		it('should return empty object when no more arguments', () => {
 
 			Argue.setArguments();
-			Argue.strictOptions([], ['output']).should.be.deepEqual({});
+			expect(Argue.strictOptions([], ['output'])).toEqual({});
 		});
 
 		it('should return empty object when key given instead flag', () => {
 
 			Argue.setArguments('install');
-			Argue.optionsEqual('output').should.be.deepEqual({});
+			expect(Argue.optionsEqual('output')).toEqual({});
 		});
 
 		it('should return object with values', () => {
 
 			Argue.setArguments('--output=/var/tmp.txt', '--verbose');
-			Argue.optionsEqual('output', 'verbose').should.be.deepEqual({
+			expect(Argue.optionsEqual('output', 'verbose')).toEqual({
 				output:  '/var/tmp.txt',
 				verbose: true
 			});
@@ -36,7 +34,7 @@ describe('optionsEqual()', () => {
 		it('should read all flags and return object with values', () => {
 
 			Argue.setArguments('lift', '--verbose');
-			Argue.optionsEqual('verbose').should.be.deepEqual({
+			expect(Argue.optionsEqual('verbose')).toEqual({
 				verbose: true
 			});
 		});
@@ -47,27 +45,25 @@ describe('optionsEqual()', () => {
 		it('should throw error when given option is doesn\'t expected', () => {
 
 			Argue.setArguments('--input');
-			(() => Argue.optionsEqual(['output', 'o'])).should.throw(Error, {
-				message: 'Unexpected key "input".'
-			});
+			expect(() => Argue.optionsEqual(['output', 'o'])).toThrow(/Unexpected key "input"/);
 		});
 
 		it('should return empty object when no more arguments', () => {
 
 			Argue.setArguments();
-			Argue.optionsEqual(['output', 'o']).should.be.deepEqual({});
+			expect(Argue.optionsEqual(['output', 'o'])).toEqual({});
 		});
 
 		it('should return empty object when key given instead flag', () => {
 
 			Argue.setArguments('install');
-			Argue.optionsEqual(['output', 'o']).should.be.deepEqual({});
+			expect(Argue.optionsEqual(['output', 'o'])).toEqual({});
 		});
 
 		it('should return object with values if full flag is given', () => {
 
 			Argue.setArguments('--output=/var/tmp.txt');
-			Argue.optionsEqual(['output', 'o']).should.be.deepEqual({
+			expect(Argue.optionsEqual(['output', 'o'])).toEqual({
 				output: ['/var/tmp.txt']
 			});
 		});
@@ -75,7 +71,7 @@ describe('optionsEqual()', () => {
 		it('should return object with array values if full flag is given', () => {
 
 			Argue.setArguments('--output=/var/tmp.txt,/var/log/my');
-			Argue.optionsEqual(['output', 'o']).should.be.deepEqual({
+			expect(Argue.optionsEqual(['output', 'o'])).toEqual({
 				output: ['/var/tmp.txt', '/var/log/my']
 			});
 		});
@@ -83,7 +79,7 @@ describe('optionsEqual()', () => {
 		it('should read all flags and return object with values if full flag is given', () => {
 
 			Argue.setArguments('lift', '--verbose');
-			Argue.optionsEqual(['verbose', 'v']).should.be.deepEqual({
+			expect(Argue.optionsEqual(['verbose', 'v'])).toEqual({
 				verbose: true
 			});
 		});
@@ -91,7 +87,7 @@ describe('optionsEqual()', () => {
 		it('should return object with values if shirt flag is given', () => {
 
 			Argue.setArguments('-o=/var/tmp.txt');
-			Argue.optionsEqual(['output', 'o']).should.be.deepEqual({
+			expect(Argue.optionsEqual(['output', 'o'])).toEqual({
 				output: ['/var/tmp.txt']
 			});
 		});
@@ -99,7 +95,7 @@ describe('optionsEqual()', () => {
 		it('should return object with array values if shirt flag is given', () => {
 
 			Argue.setArguments('-o=/var/tmp.txt,/var/log/my');
-			Argue.optionsEqual(['output', 'o']).should.be.deepEqual({
+			expect(Argue.optionsEqual(['output', 'o'])).toEqual({
 				output: ['/var/tmp.txt', '/var/log/my']
 			});
 		});
@@ -107,7 +103,7 @@ describe('optionsEqual()', () => {
 		it('should read all flags and return object with values if shirt flag is given', () => {
 
 			Argue.setArguments('lift', '-v');
-			Argue.optionsEqual(['verbose', 'v']).should.be.deepEqual({
+			expect(Argue.optionsEqual(['verbose', 'v'])).toEqual({
 				verbose: true
 			});
 		});
@@ -118,27 +114,25 @@ describe('optionsEqual()', () => {
 		it('should throw error when given option is doesn\'t expected', () => {
 
 			Argue.setArguments('--input');
-			(() => Argue.optionsEqual({ 'output': 'o' })).should.throw(Error, {
-				message: 'Unexpected key "input".'
-			});
+			expect(() => Argue.optionsEqual({ 'output': 'o' })).toThrow(/Unexpected key "input"/);
 		});
 
 		it('should return empty object when no more arguments', () => {
 
 			Argue.setArguments();
-			Argue.optionsEqual({ 'output': 'o' }).should.be.deepEqual({});
+			expect(Argue.optionsEqual({ 'output': 'o' })).toEqual({});
 		});
 
 		it('should return empty object when key given instead flag', () => {
 
 			Argue.setArguments('install');
-			Argue.optionsEqual({ 'output': 'o' }).should.be.deepEqual({});
+			expect(Argue.optionsEqual({ 'output': 'o' })).toEqual({});
 		});
 
 		it('should return object with values if full flag is given', () => {
 
 			Argue.setArguments('--output=/var/tmp.txt', '--verbose');
-			Argue.optionsEqual({ 'output': 'o' }, { 'verbose': 'v' }).should.be.deepEqual({
+			expect(Argue.optionsEqual({ 'output': 'o' }, { 'verbose': 'v' })).toEqual({
 				output:  '/var/tmp.txt',
 				verbose: true
 			});
@@ -147,7 +141,7 @@ describe('optionsEqual()', () => {
 		it('should read all flags and return object with values if full flag is given', () => {
 
 			Argue.setArguments('lift', '--verbose');
-			Argue.optionsEqual({ 'verbose': 'v' }).should.be.deepEqual({
+			expect(Argue.optionsEqual({ 'verbose': 'v' })).toEqual({
 				verbose: true
 			});
 		});
@@ -155,7 +149,7 @@ describe('optionsEqual()', () => {
 		it('should return object with values if shirt flag is given', () => {
 
 			Argue.setArguments('-o=/var/tmp.txt', '-v');
-			Argue.optionsEqual({ 'output': 'o' }, { 'verbose': 'v' }).should.be.deepEqual({
+			expect(Argue.optionsEqual({ 'output': 'o' }, { 'verbose': 'v' })).toEqual({
 				output:  '/var/tmp.txt',
 				verbose: true
 			});
@@ -164,7 +158,7 @@ describe('optionsEqual()', () => {
 		it('should read all flags and return object with values if shirt flag is given', () => {
 
 			Argue.setArguments('lift', '-v');
-			Argue.optionsEqual({ 'verbose': 'v' }).should.be.deepEqual({
+			expect(Argue.optionsEqual({ 'verbose': 'v' })).toEqual({
 				verbose: true
 			});
 		});

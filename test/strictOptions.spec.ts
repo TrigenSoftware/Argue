@@ -9,27 +9,25 @@ describe('strictOptions()', () => {
 			it('should throw error when given flag is doesn\'t expected', () => {
 
 				Argue.setArguments('--verbose');
-				(() => Argue.strictOptions(['silent'], [])).should.throw(Error, {
-					message: 'Unexpected key "verbose".'
-				});
+				expect(() => Argue.strictOptions(['silent'], [])).toThrow(/Unexpected key "verbose"/);
 			});
 
 			it('should return empty object when no more arguments', () => {
 
 				Argue.setArguments();
-				Argue.strictOptions(['verbose'], []).should.be.deepEqual({});
+				expect(Argue.strictOptions(['verbose'], [])).toEqual({});
 			});
 
 			it('should return empty object when key given instead flag', () => {
 
 				Argue.setArguments('install');
-				Argue.strictOptions(['verbose'], []).should.be.deepEqual({});
+				expect(Argue.strictOptions(['verbose'], [])).toEqual({});
 			});
 
 			it('should return object with values', () => {
 
 				Argue.setArguments('--verbose');
-				Argue.strictOptions(['verbose'], []).should.be.deepEqual({
+				expect(Argue.strictOptions(['verbose'], [])).toEqual({
 					verbose: true
 				});
 			});
@@ -40,27 +38,25 @@ describe('strictOptions()', () => {
 			it('should throw error when given flag is doesn\'t expected', () => {
 
 				Argue.setArguments('--verbose');
-				(() => Argue.strictOptions([['silent', 's']], [])).should.throw(Error, {
-					message: 'Unexpected key "verbose".'
-				});
+				expect(() => Argue.strictOptions([['silent', 's']], [])).toThrow(/Unexpected key "verbose"/);
 			});
 
 			it('should return empty object when no more arguments', () => {
 
 				Argue.setArguments();
-				Argue.strictOptions([['verbose', 'v']], []).should.be.deepEqual({});
+				expect(Argue.strictOptions([['verbose', 'v']], [])).toEqual({});
 			});
 
 			it('should return empty object when key given instead flag', () => {
 
 				Argue.setArguments('install');
-				Argue.strictOptions([['verbose', 'v']], []).should.be.deepEqual({});
+				expect(Argue.strictOptions([['verbose', 'v']], [])).toEqual({});
 			});
 
 			it('should return object with values if full flag is given', () => {
 
 				Argue.setArguments('--verbose');
-				Argue.strictOptions([['verbose', 'v']], []).should.be.deepEqual({
+				expect(Argue.strictOptions([['verbose', 'v']], [])).toEqual({
 					verbose: true
 				});
 			});
@@ -68,7 +64,7 @@ describe('strictOptions()', () => {
 			it('should return object with values if shirt flag is given', () => {
 
 				Argue.setArguments('-v');
-				Argue.strictOptions([['verbose', 'v']], []).should.be.deepEqual({
+				expect(Argue.strictOptions([['verbose', 'v']], [])).toEqual({
 					verbose: true
 				});
 			});
@@ -79,27 +75,25 @@ describe('strictOptions()', () => {
 			it('should throw error when given flag is doesn\'t expected', () => {
 
 				Argue.setArguments('--verbose');
-				(() => Argue.strictOptions([{ 'silent': 's' }], [])).should.throw(Error, {
-					message: 'Unexpected key "verbose".'
-				});
+				expect(() => Argue.strictOptions([{ 'silent': 's' }], [])).toThrow(/Unexpected key "verbose"/);
 			});
 
 			it('should return empty object when no more arguments', () => {
 
 				Argue.setArguments();
-				Argue.strictOptions([{ 'verbose': 'v' }], []).should.be.deepEqual({});
+				expect(Argue.strictOptions([{ 'verbose': 'v' }], [])).toEqual({});
 			});
 
 			it('should return empty object when key given instead flag', () => {
 
 				Argue.setArguments('install');
-				Argue.strictOptions([{ 'verbose': 'v' }], []).should.be.deepEqual({});
+				expect(Argue.strictOptions([{ 'verbose': 'v' }], [])).toEqual({});
 			});
 
 			it('should return object with values if full flag is given', () => {
 
 				Argue.setArguments('--verbose');
-				Argue.strictOptions([{ 'verbose': 'v' }], []).should.be.deepEqual({
+				expect(Argue.strictOptions([{ 'verbose': 'v' }], [])).toEqual({
 					verbose: true
 				});
 			});
@@ -107,7 +101,7 @@ describe('strictOptions()', () => {
 			it('should return object with values if shirt flag is given', () => {
 
 				Argue.setArguments('-v');
-				Argue.strictOptions([{ 'verbose': 'v' }], []).should.be.deepEqual({
+				expect(Argue.strictOptions([{ 'verbose': 'v' }], [])).toEqual({
 					verbose: true
 				});
 			});
@@ -121,35 +115,31 @@ describe('strictOptions()', () => {
 			it('should throw error when given option is doesn\'t expected', () => {
 
 				Argue.setArguments('--input');
-				(() => Argue.strictOptions([], ['output'])).should.throw(Error, {
-					message: 'Unexpected key "input".'
-				});
+				expect(() => Argue.strictOptions([], ['output'])).toThrow(/Unexpected key "input"/);
 			});
 
 			it('should throw error when value of option is skiped', () => {
 
 				Argue.setArguments('--output');
-				(() => Argue.strictOptions([], ['output'])).should.throw(Error, {
-					message: 'Unexpected end of arguments.'
-				});
+				expect(() => Argue.strictOptions([], ['output'])).toThrow(/Unexpected end of arguments/);
 			});
 
 			it('should return empty object when no more arguments', () => {
 
 				Argue.setArguments();
-				Argue.strictOptions([], ['output']).should.be.deepEqual({});
+				expect(Argue.strictOptions([], ['output'])).toEqual({});
 			});
 
 			it('should return empty object when key given instead flag', () => {
 
 				Argue.setArguments('install');
-				Argue.strictOptions([], ['output']).should.be.deepEqual({});
+				expect(Argue.strictOptions([], ['output'])).toEqual({});
 			});
 
 			it('should return object with values', () => {
 
 				Argue.setArguments('--output', '/var/tmp.txt');
-				Argue.strictOptions([], ['output']).should.be.deepEqual({
+				expect(Argue.strictOptions([], ['output'])).toEqual({
 					output: '/var/tmp.txt'
 				});
 			});
@@ -160,35 +150,31 @@ describe('strictOptions()', () => {
 			it('should throw error when given option is doesn\'t expected', () => {
 
 				Argue.setArguments('--input');
-				(() => Argue.strictOptions([], [['output', 'o']])).should.throw(Error, {
-					message: 'Unexpected key "input".'
-				});
+				expect(() => Argue.strictOptions([], [['output', 'o']])).toThrow(/Unexpected key "input"/);
 			});
 
 			it('should throw error when value of option is skiped', () => {
 
 				Argue.setArguments('--output');
-				(() => Argue.strictOptions([], [['output', 'o']])).should.throw(Error, {
-					message: 'Unexpected end of arguments.'
-				});
+				expect(() => Argue.strictOptions([], [['output', 'o']])).toThrow(/Unexpected end of arguments/);
 			});
 
 			it('should return empty object when no more arguments', () => {
 
 				Argue.setArguments();
-				Argue.strictOptions([], [['output', 'o']]).should.be.deepEqual({});
+				expect(Argue.strictOptions([], [['output', 'o']])).toEqual({});
 			});
 
 			it('should return empty object when key given instead flag', () => {
 
 				Argue.setArguments('install');
-				Argue.strictOptions([], [['output', 'o']]).should.be.deepEqual({});
+				expect(Argue.strictOptions([], [['output', 'o']])).toEqual({});
 			});
 
 			it('should return object with values if full flag is given', () => {
 
 				Argue.setArguments('--output', '/var/tmp.txt');
-				Argue.strictOptions([], [['output', 'o']]).should.be.deepEqual({
+				expect(Argue.strictOptions([], [['output', 'o']])).toEqual({
 					output: ['/var/tmp.txt']
 				});
 			});
@@ -196,7 +182,7 @@ describe('strictOptions()', () => {
 			it('should return object with array values if shirt flag is given', () => {
 
 				Argue.setArguments('--output', '/var/tmp.txt,/var/log/my');
-				Argue.strictOptions([], [['output', 'o']]).should.be.deepEqual({
+				expect(Argue.strictOptions([], [['output', 'o']])).toEqual({
 					output: ['/var/tmp.txt', '/var/log/my']
 				});
 			});
@@ -204,7 +190,7 @@ describe('strictOptions()', () => {
 			it('should return object with values if shirt flag is given', () => {
 
 				Argue.setArguments('-o', '/var/tmp.txt');
-				Argue.strictOptions([], [['output', 'o']]).should.be.deepEqual({
+				expect(Argue.strictOptions([], [['output', 'o']])).toEqual({
 					output: ['/var/tmp.txt']
 				});
 			});
@@ -212,7 +198,7 @@ describe('strictOptions()', () => {
 			it('should return object with array values if shirt flag is given', () => {
 
 				Argue.setArguments('-o', '/var/tmp.txt,/var/log/my');
-				Argue.strictOptions([], [['output', 'o']]).should.be.deepEqual({
+				expect(Argue.strictOptions([], [['output', 'o']])).toEqual({
 					output: ['/var/tmp.txt', '/var/log/my']
 				});
 			});
@@ -223,35 +209,31 @@ describe('strictOptions()', () => {
 			it('should throw error when given option is doesn\'t expected', () => {
 
 				Argue.setArguments('--input');
-				(() => Argue.strictOptions([], [{ 'output': 'o' }])).should.throw(Error, {
-					message: 'Unexpected key "input".'
-				});
+				expect(() => Argue.strictOptions([], [{ 'output': 'o' }])).toThrow(/Unexpected key "input"/);
 			});
 
 			it('should throw error when value of option is skiped', () => {
 
 				Argue.setArguments('--output');
-				(() => Argue.strictOptions([], [{ 'output': 'o' }])).should.throw(Error, {
-					message: 'Unexpected end of arguments.'
-				});
+				expect(() => Argue.strictOptions([], [{ 'output': 'o' }])).toThrow(/Unexpected end of arguments/);
 			});
 
 			it('should return empty object when no more arguments', () => {
 
 				Argue.setArguments();
-				Argue.strictOptions([], [{ 'output': 'o' }]).should.be.deepEqual({});
+				expect(Argue.strictOptions([], [{ 'output': 'o' }])).toEqual({});
 			});
 
 			it('should return empty object when key given instead flag', () => {
 
 				Argue.setArguments('install');
-				Argue.strictOptions([], [{ 'output': 'o' }]).should.be.deepEqual({});
+				expect(Argue.strictOptions([], [{ 'output': 'o' }])).toEqual({});
 			});
 
 			it('should return object with values if full flag is given', () => {
 
 				Argue.setArguments('--output', '/var/tmp.txt');
-				Argue.strictOptions([], [{ 'output': 'o' }]).should.be.deepEqual({
+				expect(Argue.strictOptions([], [{ 'output': 'o' }])).toEqual({
 					output: '/var/tmp.txt'
 				});
 			});
@@ -259,7 +241,7 @@ describe('strictOptions()', () => {
 			it('should return object with values if shirt flag is given', () => {
 
 				Argue.setArguments('-o', '/var/tmp.txt');
-				Argue.strictOptions([], [{ 'output': 'o' }]).should.be.deepEqual({
+				expect(Argue.strictOptions([], [{ 'output': 'o' }])).toEqual({
 					output: '/var/tmp.txt'
 				});
 			});

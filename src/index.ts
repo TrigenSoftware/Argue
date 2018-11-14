@@ -172,7 +172,7 @@ export function strictOptions(flagsNames, optionsNames) {
 			throw new Error('Unexpected end of arguments.');
 		}
 
-		let value = argv[0];
+		let value: string|string[] = argv[0];
 
 		if (optionKey && value.indexOf('--') !== 0
 			&& (value.indexOf('-') !== 0 && value.length !== shirtArgLength)
@@ -181,7 +181,7 @@ export function strictOptions(flagsNames, optionsNames) {
 			argv.shift();
 
 			if (optionKey.isArray) {
-				value = String(value.split(',').map(element => element.replace(/^['"]|["']$/g, '')));
+				value = value.split(',').map(element => element.replace(/^['"]|["']$/g, ''));
 			} else {
 				value = value.replace(/^['"]|["']$/g, '');
 			}
@@ -236,7 +236,9 @@ export function strictOptionsEqual(...names) {
 		)
 	) {
 
-		let [sourceKey, value] = argv.shift().replace(/^(--|-)/, '').split('=');
+		const keyValue = argv.shift().replace(/^(--|-)/, '').split('=');
+		let sourceKey: string = keyValue[0];
+		let value: string|string[]|boolean = keyValue[1]; 
 
 		const key = findName(sourceKey, names);
 
@@ -245,10 +247,10 @@ export function strictOptionsEqual(...names) {
 		}
 
 		if (typeof value === 'undefined') {
-			value = 'true';
+			value = true;
 		} else
 		if (key.isArray) {
-			value = String(value.split(',').map(element => element.replace(/^['"]|["']$/g, '')));
+			value = value.split(',').map(element => element.replace(/^['"]|["']$/g, ''));
 		} else {
 			value = value.replace(/^['"]|["']$/g, '');
 		}
@@ -310,7 +312,7 @@ export function options(flagsNames, optionsNames) {
 			throw new Error('Unexpected end of arguments.');
 		}
 
-		let value = argvc[i + 1];
+		let value: string|string[] = argvc[i + 1];
 
 		if (optionKey && value.indexOf('--') !== 0
 			&& (value.indexOf('-') !== 0 && value.length !== shirtArgLength)
@@ -319,7 +321,7 @@ export function options(flagsNames, optionsNames) {
 			remove.unshift(i++);
 
 			if (optionKey.isArray) {
-				value = String(value.split(',').map(element => element.replace(/^['"]|["']$/g, '')));
+				value = value.split(',').map(element => element.replace(/^['"]|["']$/g, ''));
 			} else {
 				value = value.replace(/^['"]|["']$/g, '');
 			}
@@ -376,7 +378,9 @@ export function optionsEqual(...names) {
 			continue;
 		}
 
-		let [sourceKey, value] = argument.replace(/^(--|-)/, '').split('=');
+		const keyValue = argument.replace(/^(--|-)/, '').split('=');
+		let sourceKey: string = keyValue[0];
+		let value: string|string[]|boolean = keyValue[1];
 
 		const key = findName(sourceKey, names);
 
@@ -387,10 +391,10 @@ export function optionsEqual(...names) {
 		}
 
 		if (typeof value === 'undefined') {
-			value = 'true';
+			value = true;
 		} else
 		if (key.isArray) {
-			value = String(value.split(',').map(element => element.replace(/^['"]|["']$/g, '')));
+			value = value.split(',').map(element => element.replace(/^['"]|["']$/g, ''));
 		} else {
 			value = value.replace(/^['"]|["']$/g, '');
 		}
