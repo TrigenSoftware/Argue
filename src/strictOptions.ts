@@ -55,20 +55,27 @@ export function strictOptions(flagsNames, optionsNames) {
 			&& (value.indexOf('-') !== 0 && value.length !== SHIRT_ARG_LENGTH)
 		) {
 
+			const [
+				optionFullName,
+				optionIsArray
+			] = optionKey;
+
 			argv.shift();
 
-			if (optionKey.isArray) {
+			if (optionIsArray) {
 				value = value.split(',').map(element => element.replace(/^['"]|["']$/g, ''));
 			} else {
 				value = value.replace(/^['"]|["']$/g, '');
 			}
 
-			options[optionKey.name] = value;
+			options[optionFullName] = value;
 
 		} else
 		if (flagKey) {
 
-			options[flagKey.name] = true;
+			const [flagFullName] = flagKey;
+
+			options[flagFullName] = true;
 
 		} else {
 			throw new Error(`Unexpected key "${value}".`);
@@ -123,16 +130,21 @@ export function strictOptionsEqual(...names) {
 			throw new Error(`Unexpected key "${sourceKey}".`);
 		}
 
+		const [
+			fullName,
+			isArray
+		] = key;
+
 		if (typeof value === 'undefined') {
 			value = true;
 		} else
-		if (key.isArray) {
+		if (isArray) {
 			value = value.split(',').map(element => element.replace(/^['"]|["']$/g, ''));
 		} else {
 			value = value.replace(/^['"]|["']$/g, '');
 		}
 
-		options[key.name] = value;
+		options[fullName] = value;
 
 		argument = argv[0];
 	}

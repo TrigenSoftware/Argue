@@ -1,48 +1,52 @@
+import { INames } from './types';
 
-export function findName(name, names) {
+/**
+ *
+ * @param name
+ * @param names
+ */
+export function findName(name: string, names: INames[]): [string, boolean] {
 
-	let findedName = '';
-	let array = false;
+	let foundName = '';
+	let isArray = false;
 
-	names.some((fullNameOrigin) => {
+	names.some((nameRule) => {
 
-		let keys = null;
-		let fullName = fullNameOrigin;
-		let shirtName = null;
+		if (typeof nameRule === 'string') {
 
-		if (typeof fullName === 'string') {
-
-			if (fullName === name) {
-				findedName = fullName;
+			if (nameRule === name) {
+				foundName = nameRule;
 				return true;
 			}
 
 			return false;
 		}
 
-		const proto = Object.getPrototypeOf(fullName); // eslint-disable-line
+		if (Array.isArray(nameRule)) {
 
-		if (proto === Object.prototype) {
+			const [
+				fullName,
+				shortName
+			] = nameRule;
 
-			keys = fullName;
-			fullName = Object.keys(keys)[0];
-			shirtName = keys[fullName];
-
-			if (fullName === name || shirtName === name) {
-				findedName = fullName;
+			if (fullName === name || shortName === name) {
+				isArray = true;
+				foundName = fullName;
 				return true;
 			}
 
 			return false;
 		}
 
-		if (proto === Array.prototype) {
+		if (nameRule && typeof nameRule === 'object') {
 
-			[fullName, shirtName] = fullName;
+			const [[
+				fullName,
+				shortName
+			]] = Object.entries(nameRule);
 
-			if (fullName === name || shirtName === name) {
-				array = true;
-				findedName = fullName;
+			if (fullName === name || shortName === name) {
+				foundName = fullName;
 				return true;
 			}
 
@@ -52,8 +56,7 @@ export function findName(name, names) {
 		return false;
 	});
 
-	return findedName
-		? { name: findedName, isArray: array }
-		: false
-	;
+	return foundName
+		? [foundName, isArray]
+		: null;
 }

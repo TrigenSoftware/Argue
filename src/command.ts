@@ -28,7 +28,9 @@ export function expect(...names) {
 		throw new Error(`Unexpected argument "${sourceKey}".`);
 	}
 
-	return argument.name;
+	const [fullName] = argument;
+
+	return fullName;
 }
 
 /**
