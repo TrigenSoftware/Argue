@@ -4,16 +4,20 @@ import argv from './argv';
 /**
  * Strict expectation one of given commands.
  *
- *     command-line-app install
+ * Example:
  *
- *     expect(
- *         {"install": "i"}, - fullname and shirtname
- *         ["update", "u"],  - also fullname and shirtname
- *         "info"            - only one variant of name
- *     )
+ * ```
+ * // command-line-app install
  *
- * @param  {...Object} names    array of expected tokens
- * @return {String}    fullname
+ * expect(
+ *     {"install": "i"}, // fullname and shirtname
+ *     ["update", "u"], // also fullname and shirtname
+ *     "info" // only one variant of name
+ * )
+ * ```
+ *
+ * @param  {...Object} names - array of expected tokens
+ * @return {String} - fullname
  */
 export function expect(...names) {
 
@@ -36,9 +40,9 @@ export function expect(...names) {
 /**
  * Strict reading of argument.
  *
- *     command-line-app some-value
+ * command-line-app some-value
  *
- * @return {String} argument
+ * @return {String} - argument
  */
 export function read() {
 
@@ -51,6 +55,7 @@ export function read() {
 
 /**
  * Strict expectation of end.
+ *
  * @returns {void}
  */
 export function end() {

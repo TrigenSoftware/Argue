@@ -5,19 +5,23 @@ import argv from './argv';
 /**
  * Strict reading of flags and options.
  *
- *     command-line-app --output test -p es2015,react --verbose
+ * Example:
  *
- *     strictOptions([
- *         ["another"]      - for flags array is same as object notation
- *         "verbose"        - only one variant of name
- *     ], [
- *         {"output": "o"}, - fullname and shirtname
- *         ["plugins", "p"] - fullname and shirtname for array
- *     ])
+ * ```
+ * // command-line-app --output test -p es2015,react --verbose
  *
- * @param  {...Object} flagsNames   array of tokens
- * @param  {...Object} optionsNames array of tokens
- * @return {Object}    fullname-value pairs
+ * strictOptions([
+ *     ["another"] // for flags array is same as object notation
+ *     "verbose" // only one variant of name
+ * ], [
+ *     {"output": "o"}, // fullname and shirtname
+ *     ["plugins", "p"] // fullname and shirtname for array
+ * ])
+ * ```
+ *
+ * @param  {...Object} flagsNames - array of tokens
+ * @param  {...Object} optionsNames - array of tokens
+ * @return {Object} - fullname-value pairs
  */
 export function strictOptions(flagsNames, optionsNames) {
 
@@ -91,16 +95,19 @@ export function strictOptions(flagsNames, optionsNames) {
  * Strict reading of options with equal sign.
  * If option is provided without value it will interpreted as `true`.
  *
- *     command-line-app --output=test -p=es2015,react --verbose
+ * Example:
  *
- *     strictOptionsEqual(
- *         {"output": "o"},  - fullname and shirtname
- *         ["plugins", "p"], - fullname and shirtname for array
- *         "verbose"         - only one variant of name
- *     )
+ * ```
+ * // command-line-app --output=test -p=es2015,react --verbose
  *
- * @param  {...Object} names array of tokens
- * @return {Object}    fullname-value pairs
+ * strictOptionsEqual(
+ *     {"output": "o"}, // fullname and shirtname
+ *     ["plugins", "p"], // fullname and shirtname for array
+ *     "verbose" // only one variant of name
+ * )
+ * ```
+ * @param  {...Object} names - array of tokens
+ * @return {Object} - fullname-value pairs
  */
 export function strictOptionsEqual(...names) {
 

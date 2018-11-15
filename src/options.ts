@@ -5,19 +5,22 @@ import argv from './argv';
 /**
  * Unlimited reading of flags and options.
  *
- *     command-line-app --output test install -p es2015,react babel --verbose
+ * Example:
  *
- *     options([
- *         ["another"]      - for flags array is same as object notation
- *         "verbose"        - only one variant of name
- *     ], [
- *         {"output": "o"}, - fullname and shirtname
- *         ["plugins", "p"] - fullname and shirtname for array
- *     ])
+ * ```
+ * // command-line-app --output test install -p es2015,react babel --verbose
+ * options([
+ *     ["another"] // for flags array is same as object notation
+ *     "verbose" // only one variant of name
+ * ], [
+ *     {"output": "o"}, // fullname and shirtname
+ *     ["plugins", "p"] // fullname and shirtname for array
+ * ])
+ * ```
  *
- * @param  {...Object} flagsNames   array of tokens
- * @param  {...Object} optionsNames array of tokens
- * @return {Object}    fullname-value pairs
+ * @param  {...Object} flagsNames - array of tokens
+ * @param  {...Object} optionsNames - array of tokens
+ * @return {Object} - fullname-value pairs
  */
 export function options(flagsNames, optionsNames) {
 
@@ -95,16 +98,20 @@ export function options(flagsNames, optionsNames) {
  * Unlimited reading of with equal sign.
  * If option is provided without value it will interpreted as `true`.
  *
- *     command-line-app --output=test install -p=es2015,react babel --verbose
+ * Example:
  *
- *     optionsEqual(
- *         {"output": "o"},  - fullname and shirtname
- *         ["plugins", "p"], - fullname and shirtname for array
- *         "verbose"         - only one variant of name
- *     )
+ * ```
+ * // command-line-app --output=test install -p=es2015,react babel --verbose
  *
- * @param  {...Object} names array of tokens
- * @return {Object}    fullname-value pairs
+ * optionsEqual(
+ *     {"output": "o"}, // fullname and shirtname
+ *     ["plugins", "p"], // fullname and shirtname for array
+ *     "verbose" // only one variant of name
+ * )
+ * ```
+ *
+ * @param  {...Object} names - array of tokens
+ * @return {Object} - fullname-value pairs
  */
 export function optionsEqual(...names) {
 

@@ -1,10 +1,27 @@
 import { INames } from './types';
 
 /**
+ * Function finds fullName in name rules.
  *
- * @param name
- * @param names
+ * Example:
+ *
+ * ```
+ * findName('o', [
+ * 	   { 'output': 'o' },
+ *     ['plugins', 'p']
+ * ]) // returns ['output', false]
+ *
+ * findName('plugins', [
+ * 	   { 'output': 'o' },
+ *     ['plugins', 'p']
+ * ]) // returns ['output', true]
+ * ```
+ *
+ * @param name - A string of name to findName to find
+ * @param names - A string or an object or an array
+ * @return - Array with foundName and isArray boolean or null.
  */
+
 export function findName(name: string, names: INames[]): [string, boolean] {
 
 	let foundName = '';
