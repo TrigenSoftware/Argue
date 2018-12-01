@@ -19,9 +19,9 @@ import argv from './argv';
  * ])
  * ```
  *
- * @param  {...Object} flagsNames - array of tokens
- * @param  {...Object} optionsNames - array of tokens
- * @return {Object} - fullname-value pairs
+ * @param  {...Object} flagsNames array of tokens
+ * @param  {...Object} optionsNames array of tokens
+ * @return {Object} fullname-value pairs
  */
 export function strictOptions(flagsNames, optionsNames) {
 
@@ -106,8 +106,8 @@ export function strictOptions(flagsNames, optionsNames) {
  *     "verbose" // only one variant of name
  * )
  * ```
- * @param  {...Object} names - array of tokens
- * @return {Object} - fullname-value pairs
+ * @param  {...Object} names array of tokens
+ * @return {Object} fullname-value pairs
  */
 export function strictOptionsEqual(...names) {
 

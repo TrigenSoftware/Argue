@@ -16,8 +16,8 @@ import argv from './argv';
  * )
  * ```
  *
- * @param  {...Object} names - array of expected tokens
- * @return {String} - fullname
+ * @param  {...Object} names array of expected tokens
+ * @return {String} fullname
  */
 export function expect(...names) {
 
@@ -40,9 +40,18 @@ export function expect(...names) {
 /**
  * Strict reading of argument.
  *
- * command-line-app some-value
+ * Example:
  *
- * @return {String} - argument
+ * ```
+ * // command-line-app install babel
+ *
+ * read("install") // returns "install"
+ *
+ * read("babel") // returns "babel"
+ * ```
+ *
+ *
+ * @return {String} argument
  */
 export function read() {
 
