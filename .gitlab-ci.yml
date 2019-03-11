@@ -1,0 +1,15 @@
+image: node:6-alpine
+
+variables:
+  LC_ALL: C.UTF-8
+
+before_script:
+  - npm install
+
+stages:
+- test
+
+npm-run-test:
+  stage: test
+  script:
+    - npm run test
