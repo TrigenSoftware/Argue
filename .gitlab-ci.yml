@@ -17,20 +17,19 @@ jest:
   - yarn run jest
 
 tslint:
-	stage: test
-	script:
-	- yarn run lint
+  stage: test
+  script:
+  - yarn run lint
 
 rollup:
-	stage: build
-	script:
-	- yarn run build
+  stage: build
+  script:
+  - yarn run build
 
 docs:
-	stage: deploy
-	script:
-	- yarn run generateDocs
-	artifacts:
-		paths:
-		- public
-
+  stage: deploy
+  script:
+  - yarn run generateDocs
+  artifacts:
+    paths:
+    - public
