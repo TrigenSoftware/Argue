@@ -1,0 +1,36 @@
+image: node:10-alpine
+
+variables:
+  LC_ALL: C.UTF-8
+
+before_script:
+  - yarn install
+
+stages:
+- test
+- build
+- deploy
+
+jest:
+  stage: test
+  script:
+  - yarn run jest
+
+tslint:
+	stage: test
+	script:
+	- yarn run lint
+
+rollup:
+	stage: build
+	script:
+	- yarn run build
+
+docs:
+	stage: deploy
+	script:
+	- yarn run generateDocs
+	artifacts:
+		paths:
+		- public
+
