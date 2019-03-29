@@ -13,15 +13,19 @@ Node.js CLI arguments parser.
 
 # Install
 
-```bash
-npm i -S argue-cli
-# or
+Install using npm:
+```sh
+npm i argue-cli
+```
+
+Install using yarn:
+```sh
 yarn add argue-cli
 ```
 
 # API
 
-### expect(...names)
+## expect(...names)
 Strict expectation one of given commands.
 Returns full variant of expected argument.
 ```js
@@ -32,20 +36,20 @@ expect(
 );
 ```
 
-### read()
+## read()
 Strict reading of argument.
 Returns argument.
 ```js
 read(); // e.g. for `npm babel` returns "babel"
 ```
 
-### end()
+## end()
 Strict expectation of end.
 ```js
 end(); // e.g. for `npm babel` throws Error.
 ```
 
-### strictOptions(flagsNames, optionsNames)
+## strictOptions(flagsNames, optionsNames)
 Strict reading of flags and options.
 Returns fullname-value pairs object.
 ```js
@@ -58,7 +62,7 @@ strictOptions([
 ])
 ```
 
-### strictOptionsEqual(...names)
+## strictOptionsEqual(...names)
 Strict reading of options with equal sign. 
 If option is provided without value it will interpreted as `true`.
 Returns fullname-value pairs object.
@@ -70,7 +74,7 @@ strictOptionsEqual(
 )
 ```
 
-### options(flagsNames, optionsNames)
+## options(flagsNames, optionsNames)
 Unlimited reading of flags and options.
 Returns fullname-value pairs object.
 ```js
@@ -83,7 +87,7 @@ options([
 ])
 ```
 
-### optionsEqual(...names)
+## optionsEqual(...names)
 Unlimited reading of options with equal sign. 
 If option is provided without value it will interpreted as `true`.
 Returns fullname-value pairs object.

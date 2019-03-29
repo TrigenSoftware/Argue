@@ -35,9 +35,13 @@ node_modules
 
 # OS X stuff
 .DS_Store
+._*
 
 # Some caches
 .eslintcache
 
 # Compiled dist
 lib
+
+# Rollup
+.rpt2_cache
