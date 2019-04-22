@@ -5,7 +5,7 @@ import { INames } from './types';
  *
  * Example:
  *
- * ```
+ * ```typescript
  * findName('o', [
  * 	   { 'output': 'o' },
  *     ['plugins', 'p']
@@ -21,7 +21,6 @@ import { INames } from './types';
  * @param names A string or an object or an array
  * @return Array with foundName and isArray boolean or null.
  */
-
 export function findName(name: string, names: INames[]): [string, boolean] {
 
 	let foundName = '';
