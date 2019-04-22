@@ -84,13 +84,13 @@
 					<a name="options" class="tsd-anchor"></a>
 					<h3>options</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">options<span class="tsd-signature-symbol">(</span>flagsNames<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, optionsNames<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></li>
+						<li class="tsd-signature tsd-kind-icon">options<span class="tsd-signature-symbol">(</span>flagsNames<span class="tsd-signature-symbol">: </span><a href="_types_.html#inames" class="tsd-signature-type">INames</a><span class="tsd-signature-symbol">[]</span>, optionsNames<span class="tsd-signature-symbol">: </span><a href="_types_.html#inames" class="tsd-signature-type">INames</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/TrigenSoftware/Argue/blob/19a726b/src/options.ts#L25">options.ts:25</a></li>
+									<li>Defined in <a href="https://github.com/TrigenSoftware/Argue/blob/626ea25/src/options.ts#L29">options.ts:29</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -98,25 +98,25 @@
 									<p>Unlimited reading of flags and options.</p>
 								</div>
 								<p>Example:</p>
-								<pre><code>// command-line-app --output test install -p es2015,react babel --verbose
-options([
-    [<span class="hljs-string">"another"</span>] // for flags<span class="hljs-built_in"> array </span>is same as object notation
-    <span class="hljs-string">"verbose"</span> // only one variant of name
+								<pre><code class="language-shell">cli --output test install -p es2015,react babel --verbose</code></pre>
+								<pre><code class="language-typescript">options([
+    [<span class="hljs-string">"another"</span>]      <span class="hljs-comment">// for flags array is same as object notation</span>
+    <span class="hljs-string">"verbose"</span>        <span class="hljs-comment">// only one variant of name</span>
 ], [
-    {<span class="hljs-string">"output"</span>: <span class="hljs-string">"o"</span>}, // fullname<span class="hljs-built_in"> and </span>shirtname
-    [<span class="hljs-string">"plugins"</span>, <span class="hljs-string">"p"</span>] // fullname<span class="hljs-built_in"> and </span>shirtname for<span class="hljs-built_in"> array
-</span>])</code></pre>
+    {<span class="hljs-string">"output"</span>: <span class="hljs-string">"o"</span>}, <span class="hljs-comment">// fullname and shirtname</span>
+    [<span class="hljs-string">"plugins"</span>, <span class="hljs-string">"p"</span>] <span class="hljs-comment">// fullname and shirtname for array</span>
+])</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>flagsNames: <span class="tsd-signature-type">any</span></h5>
+									<h5>flagsNames: <a href="_types_.html#inames" class="tsd-signature-type">INames</a><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>array of tokens</p>
 									</div>
 								</li>
 								<li>
-									<h5>optionsNames: <span class="tsd-signature-type">any</span></h5>
+									<h5>optionsNames: <a href="_types_.html#inames" class="tsd-signature-type">INames</a><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>array of tokens</p>
 									</div>
@@ -124,8 +124,6 @@ options([
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
 							<p>fullname-value pairs</p>
-							<ul class="tsd-parameters">
-							</ul>
 						</li>
 					</ul>
 				</section>
@@ -133,13 +131,13 @@ options([
 					<a name="optionsequal" class="tsd-anchor"></a>
 					<h3>options<wbr>Equal</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">options<wbr>Equal<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>names<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></li>
+						<li class="tsd-signature tsd-kind-icon">options<wbr>Equal<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>names<span class="tsd-signature-symbol">: </span><a href="_types_.html#inames" class="tsd-signature-type">INames</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/TrigenSoftware/Argue/blob/19a726b/src/options.ts#L116">options.ts:116</a></li>
+									<li>Defined in <a href="https://github.com/TrigenSoftware/Argue/blob/626ea25/src/options.ts#L122">options.ts:122</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -148,18 +146,17 @@ options([
 									If option is provided without value it will interpreted as <code>true</code>.</p>
 								</div>
 								<p>Example:</p>
-								<pre><code>// command-<span class="hljs-type">line</span>-app <span class="hljs-comment">--output=test install -p=es2015,react babel --verbose</span>
-
-optionsEqual(
-    {"output": "o"}, // fullname <span class="hljs-keyword">and</span> shirtname
-    ["plugins", "p"], // fullname <span class="hljs-keyword">and</span> shirtname <span class="hljs-keyword">for</span> <span class="hljs-keyword">array</span>
-    "verbose" // <span class="hljs-keyword">only</span> one variant <span class="hljs-keyword">of</span> <span class="hljs-type">name</span>
+								<pre><code class="language-shell">cli --output=test install -p=es2015,react babel --verbose</code></pre>
+								<pre><code class="language-typescript">optionsEqual(
+    {<span class="hljs-string">"output"</span>: <span class="hljs-string">"o"</span>},  <span class="hljs-comment">// fullname and shirtname</span>
+    [<span class="hljs-string">"plugins"</span>, <span class="hljs-string">"p"</span>], <span class="hljs-comment">// fullname and shirtname for array</span>
+    <span class="hljs-string">"verbose"</span>         <span class="hljs-comment">// only one variant of name</span>
 )</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>names: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>names: <a href="_types_.html#inames" class="tsd-signature-type">INames</a><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>array of tokens</p>
 									</div>
@@ -167,8 +164,6 @@ optionsEqual(
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
 							<p>fullname-value pairs</p>
-							<ul class="tsd-parameters">
-							</ul>
 						</li>
 					</ul>
 				</section>
