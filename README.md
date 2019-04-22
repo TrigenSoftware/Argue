@@ -2,12 +2,16 @@
 
 [![NPM version][npm]][npm-url]
 [![Node version][node]][node-url]
+[![Coverage status][coverage]][coverage-url]
 
 [npm]: https://img.shields.io/npm/v/argue-cli.svg
 [npm-url]: https://www.npmjs.com/package/argue-cli
 
 [node]: https://img.shields.io/node/v/argue-cli.svg
 [node-url]: https://nodejs.org
+
+[coverage]: https://img.shields.io/coveralls/TrigenSoftware/Argue.svg
+[coverage-url]: https://coveralls.io/r/TrigenSoftware/Argue
 
 Node.js CLI arguments parser.
 
