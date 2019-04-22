@@ -91,7 +91,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/TrigenSoftware/Argue/blob/de48ac0/src/command.ts#L70">command.ts:70</a></li>
+									<li>Defined in <a href="https://github.com/TrigenSoftware/Argue/blob/19a726b/src/command.ts#L73">command.ts:73</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -100,6 +100,7 @@
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<p>void</p>
 						</li>
 					</ul>
 				</section>
@@ -107,13 +108,13 @@
 					<a name="expect" class="tsd-anchor"></a>
 					<h3>expect</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">expect<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>names<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">expect<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>names<span class="tsd-signature-symbol">: </span><a href="_types_.html#inames" class="tsd-signature-type">INames</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/TrigenSoftware/Argue/blob/de48ac0/src/command.ts#L22">command.ts:22</a></li>
+									<li>Defined in <a href="https://github.com/TrigenSoftware/Argue/blob/19a726b/src/command.ts#L25">command.ts:25</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -121,18 +122,17 @@
 									<p>Strict expectation one of given commands.</p>
 								</div>
 								<p>Example:</p>
-								<pre><code>// command-<span class="hljs-type">line</span>-app install
-
-expect(
-    {"install": "i"}, // fullname <span class="hljs-keyword">and</span> shirtname
-    ["update", "u"], // <span class="hljs-keyword">also</span> fullname <span class="hljs-keyword">and</span> shirtname
-    "info" // <span class="hljs-keyword">only</span> one variant <span class="hljs-keyword">of</span> <span class="hljs-type">name</span>
+								<pre><code class="language-shell">cli install</code></pre>
+								<pre><code class="language-typescript">expect(
+    {<span class="hljs-string">"install"</span>: <span class="hljs-string">"i"</span>}, <span class="hljs-comment">// fullname and shirtname</span>
+    [<span class="hljs-string">"update"</span>, <span class="hljs-string">"u"</span>],  <span class="hljs-comment">// also fullname and shirtname</span>
+    <span class="hljs-string">"info"</span>            <span class="hljs-comment">// only one variant of name</span>
 )</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>names: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>names: <a href="_types_.html#inames" class="tsd-signature-type">INames</a><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>array of expected tokens</p>
 									</div>
@@ -153,7 +153,7 @@ expect(
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/TrigenSoftware/Argue/blob/de48ac0/src/command.ts#L56">command.ts:56</a></li>
+									<li>Defined in <a href="https://github.com/TrigenSoftware/Argue/blob/19a726b/src/command.ts#L59">command.ts:59</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -161,11 +161,9 @@ expect(
 									<p>Strict reading of argument.</p>
 								</div>
 								<p>Example:</p>
-								<pre><code><span class="hljs-comment">// command-line-app install babel</span>
-
-<span class="hljs-function"><span class="hljs-title">read</span><span class="hljs-params">(<span class="hljs-string">"install"</span>)</span></span> <span class="hljs-comment">// returns "install"</span>
-
-<span class="hljs-function"><span class="hljs-title">read</span><span class="hljs-params">(<span class="hljs-string">"babel"</span>)</span></span> <span class="hljs-comment">// returns "babel"</span></code></pre>
+								<pre><code class="language-shell">cli install babel</code></pre>
+								<pre><code class="language-typescript">read(<span class="hljs-string">"install"</span>) <span class="hljs-comment">// returns "install"</span>
+read(<span class="hljs-string">"babel"</span>)   <span class="hljs-comment">// returns "babel"</span></code></pre>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
 							<p>argument</p>

@@ -1,4 +1,5 @@
 import { findName } from './helpers';
+import { INames } from './types';
 import argv from './argv';
 
 /**
@@ -6,20 +7,22 @@ import argv from './argv';
  *
  * Example:
  *
+ * ```shell
+ * cli install
  * ```
- * // command-line-app install
  *
+ * ```typescript
  * expect(
  *     {"install": "i"}, // fullname and shirtname
- *     ["update", "u"], // also fullname and shirtname
- *     "info" // only one variant of name
+ *     ["update", "u"],  // also fullname and shirtname
+ *     "info"            // only one variant of name
  * )
  * ```
  *
- * @param  {...Object} names array of expected tokens
- * @return {String} fullname
+ * @param names array of expected tokens
+ * @return fullname
  */
-export function expect(...names) {
+export function expect(...names: INames[]): string {
 
 	if (!argv.length) {
 		throw new Error('Unexpected end of arguments.');
@@ -42,18 +45,18 @@ export function expect(...names) {
  *
  * Example:
  *
+ * ```shell
+ * cli install babel
  * ```
- * // command-line-app install babel
  *
+ * ```typescript
  * read("install") // returns "install"
- *
- * read("babel") // returns "babel"
+ * read("babel")   // returns "babel"
  * ```
  *
- *
- * @return {String} argument
+ * @return argument
  */
-export function read() {
+export function read(): string {
 
 	if (!argv.length) {
 		throw new Error('Unexpected end of arguments.');
@@ -65,9 +68,9 @@ export function read() {
 /**
  * Strict expectation of end.
  *
- * @returns {void}
+ * @returns void
  */
-export function end() {
+export function end(): void {
 
 	if (argv.length) {
 		throw new Error(`Unexpected argument "${argv[0]}".`);
