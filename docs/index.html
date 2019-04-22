@@ -1,0 +1,237 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>argue-cli</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">argue-cli</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1> argue-cli</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<h1 id="argue-cli">argue-cli</h1>
+				<p><a href="https://www.npmjs.com/package/argue-cli"><img src="https://img.shields.io/npm/v/argue-cli.svg" alt="NPM version"></a>
+				<a href="https://nodejs.org"><img src="https://img.shields.io/node/v/argue-cli.svg" alt="Node version"></a></p>
+				<p>Node.js CLI arguments parser.</p>
+				<h1 id="install">Install</h1>
+				<p>Install using npm:</p>
+				<pre><code class="language-sh">npm i argue-cli</code></pre>
+				<p>Install using yarn:</p>
+				<pre><code class="language-sh">yarn add argue-cli</code></pre>
+				<h1 id="api">API</h1>
+				<h2 id="expect-names-">expect(...names)</h2>
+				<p>Strict expectation one of given commands.
+				Returns full variant of expected argument.</p>
+				<pre><code class="language-js">expect(
+    {<span class="hljs-string">"install"</span>: <span class="hljs-string">"i"</span>}, <span class="hljs-comment">// full name and shirt name, e.g. `npm install`, `npm i` </span>
+    [<span class="hljs-string">"update"</span>, <span class="hljs-string">"u"</span>],  <span class="hljs-comment">// also full name and shirt name, e.g. `npm update`, `npm u`   </span>
+    <span class="hljs-string">"info"</span>            <span class="hljs-comment">// only one variant of name</span>
+);</code></pre>
+				<h2 id="read-">read()</h2>
+				<p>Strict reading of argument.
+				Returns argument.</p>
+				<pre><code class="language-js">read(); <span class="hljs-comment">// e.g. for `npm babel` returns "babel"</span></code></pre>
+				<h2 id="end-">end()</h2>
+				<p>Strict expectation of end.</p>
+				<pre><code class="language-js">end(); <span class="hljs-comment">// e.g. for `npm babel` throws Error.</span></code></pre>
+				<h2 id="strictoptions-flagsnames-optionsnames-">strictOptions(flagsNames, optionsNames)</h2>
+				<p>Strict reading of flags and options.
+				Returns fullname-value pairs object.</p>
+				<pre><code class="language-js">strictOptions([
+    [<span class="hljs-string">"another"</span>],     <span class="hljs-comment">// for flags array is same as object notation</span>
+    <span class="hljs-string">"verbose"</span>        <span class="hljs-comment">// only one variant of name, e.g. `babel --verbose`</span>
+], [
+    {<span class="hljs-string">"output"</span>: <span class="hljs-string">"o"</span>}, <span class="hljs-comment">// full name and shirt name, e.g. `babel --output ./main.js`, `babel -o ./main.js` </span>
+    [<span class="hljs-string">"plugins"</span>, <span class="hljs-string">"p"</span>] <span class="hljs-comment">// fullname and shirtname for array, e.g. `babel --plugins commonjs,decorators`, `babel -p commonjs,decorators` </span>
+])</code></pre>
+				<h2 id="strictoptionsequal-names-">strictOptionsEqual(...names)</h2>
+				<p>Strict reading of options with equal sign.
+					If option is provided without value it will interpreted as <code>true</code>.
+				Returns fullname-value pairs object.</p>
+				<pre><code class="language-js">strictOptionsEqual(
+    {<span class="hljs-string">"output"</span>: <span class="hljs-string">"o"</span>},  <span class="hljs-comment">// full name and shirt name, e.g. `babel --output=./main.js`, `babel -o=./main.js` </span>
+    [<span class="hljs-string">"plugins"</span>, <span class="hljs-string">"p"</span>], <span class="hljs-comment">// fullname and shirtname for array, e.g. `babel --plugins=commonjs,decorators`, `babel -p=commonjs,decorators` </span>
+    <span class="hljs-string">"verbose"</span>         <span class="hljs-comment">// only one variant of name, e.g. `babel --verbose`</span>
+)</code></pre>
+				<h2 id="options-flagsnames-optionsnames-">options(flagsNames, optionsNames)</h2>
+				<p>Unlimited reading of flags and options.
+				Returns fullname-value pairs object.</p>
+				<pre><code class="language-js">options([
+    [<span class="hljs-string">"another"</span>],     <span class="hljs-comment">// for flags array is same as object notation</span>
+    <span class="hljs-string">"verbose"</span>        <span class="hljs-comment">// only one variant of name, e.g. `babel compile script.js --verbose`</span>
+], [
+    {<span class="hljs-string">"output"</span>: <span class="hljs-string">"o"</span>}, <span class="hljs-comment">// full name and shirt name, e.g. `babel compile script.js --output ./main.js`, `babel compile script.js -o ./main.js` </span>
+    [<span class="hljs-string">"plugins"</span>, <span class="hljs-string">"p"</span>] <span class="hljs-comment">// fullname and shirtname for array, e.g. `babel --plugins commonjs,decorators compile script.js`, `babel -p commonjs,decorators compile script.js` </span>
+])</code></pre>
+				<h2 id="optionsequal-names-">optionsEqual(...names)</h2>
+				<p>Unlimited reading of options with equal sign.
+					If option is provided without value it will interpreted as <code>true</code>.
+				Returns fullname-value pairs object.</p>
+				<pre><code class="language-js">optionsEqual(
+    {<span class="hljs-string">"output"</span>: <span class="hljs-string">"o"</span>},  <span class="hljs-comment">// full name and shirt name, e.g. `babel compile script.js --output=./main.js`, `babel compile script.js -o=./main.js` </span>
+    [<span class="hljs-string">"plugins"</span>, <span class="hljs-string">"p"</span>], <span class="hljs-comment">// fullname and shirtname for array, e.g. `babel --plugins=commonjs,decorators compile script.js`, `babel -p=commonjs,decorators compile script.js` </span>
+    <span class="hljs-string">"verbose"</span>         <span class="hljs-comment">// only one variant of name, e.g. `babel compile script.js --verbose`</span>
+)</code></pre>
+				<hr>
+				<p><a href="https://nodei.co/npm/argue-cli/"><img src="https://nodei.co/npm/argue-cli.png?downloads=true&downloadRank=true&stars=true" alt="NPM"></a></p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_argv_.html">"argv"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_command_.html">"command"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_constants_.html">"constants"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_helpers_.html">"helpers"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_index_.html">"index"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_options_.html">"options"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_strictoptions_.html">"strict<wbr>Options"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_types_.html">"types"</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>
