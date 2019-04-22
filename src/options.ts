@@ -1,4 +1,5 @@
 import { findName } from './helpers';
+import { INames } from './types';
 import { SHIRT_ARG_LENGTH } from './constants';
 import argv from './argv';
 
@@ -7,22 +8,25 @@ import argv from './argv';
  *
  * Example:
  *
+ * ```shell
+ * cli --output test install -p es2015,react babel --verbose
  * ```
- * // command-line-app --output test install -p es2015,react babel --verbose
+ *
+ * ```typescript
  * options([
- *     ["another"] // for flags array is same as object notation
- *     "verbose" // only one variant of name
+ *     ["another"]      // for flags array is same as object notation
+ *     "verbose"        // only one variant of name
  * ], [
  *     {"output": "o"}, // fullname and shirtname
  *     ["plugins", "p"] // fullname and shirtname for array
  * ])
  * ```
  *
- * @param  {...Object} flagsNames array of tokens
- * @param  {...Object} optionsNames array of tokens
- * @return {Object} fullname-value pairs
+ * @param flagsNames array of tokens
+ * @param optionsNames array of tokens
+ * @return fullname-value pairs
  */
-export function options(flagsNames, optionsNames) {
+export function options(flagsNames: INames[], optionsNames: INames[]): object {
 
 	if (!argv.length) {
 		return {};
@@ -100,20 +104,22 @@ export function options(flagsNames, optionsNames) {
  *
  * Example:
  *
+ * ```shell
+ * cli --output=test install -p=es2015,react babel --verbose
  * ```
- * // command-line-app --output=test install -p=es2015,react babel --verbose
  *
+ * ```typescript
  * optionsEqual(
- *     {"output": "o"}, // fullname and shirtname
+ *     {"output": "o"},  // fullname and shirtname
  *     ["plugins", "p"], // fullname and shirtname for array
- *     "verbose" // only one variant of name
+ *     "verbose"         // only one variant of name
  * )
  * ```
  *
- * @param  {...Object} names array of tokens
- * @return {Object} fullname-value pairs
+ * @param names array of tokens
+ * @return fullname-value pairs
  */
-export function optionsEqual(...names) {
+export function optionsEqual(...names: INames[]): object {
 
 	if (!argv.length) {
 		return {};
