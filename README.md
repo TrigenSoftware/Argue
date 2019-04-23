@@ -3,6 +3,7 @@
 [![NPM version][npm]][npm-url]
 [![Node version][node]][node-url]
 [![Coverage status][coverage]][coverage-url]
+[![Build status][build]][build-url]
 
 [npm]: https://img.shields.io/npm/v/argue-cli.svg
 [npm-url]: https://www.npmjs.com/package/argue-cli
@@ -12,6 +13,9 @@
 
 [coverage]: https://img.shields.io/coveralls/TrigenSoftware/Argue.svg
 [coverage-url]: https://coveralls.io/r/TrigenSoftware/Argue
+
+[build]: https://img.shields.io/travis/com/TrigenSoftware/Argue.svg
+[build-url]: https://travis-ci.com/TrigenSoftware/Argue
 
 Node.js CLI arguments parser.
 
