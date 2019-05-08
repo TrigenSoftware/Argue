@@ -8,11 +8,11 @@ import argv from './argv';
  *
  * Example:
  *
- * ```shell
+ * ```sh
  * cli --output test install -p es2015,react babel --verbose
  * ```
  *
- * ```typescript
+ * ```ts
  * options([
  *     ["another"]      // for flags array is same as object notation
  *     "verbose"        // only one variant of name
@@ -104,11 +104,11 @@ export function options(flagsNames: INames[], optionsNames: INames[]): object {
  *
  * Example:
  *
- * ```shell
+ * ```sh
  * cli --output=test install -p=es2015,react babel --verbose
  * ```
  *
- * ```typescript
+ * ```ts
  * optionsEqual(
  *     {"output": "o"},  // fullname and shirtname
  *     ["plugins", "p"], // fullname and shirtname for array

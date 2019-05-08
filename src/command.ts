@@ -7,11 +7,11 @@ import argv from './argv';
  *
  * Example:
  *
- * ```shell
+ * ```sh
  * cli install
  * ```
  *
- * ```typescript
+ * ```ts
  * expect(
  *     {"install": "i"}, // fullname and shirtname
  *     ["update", "u"],  // also fullname and shirtname
@@ -45,11 +45,11 @@ export function expect(...names: INames[]): string {
  *
  * Example:
  *
- * ```shell
+ * ```sh
  * cli install babel
  * ```
  *
- * ```typescript
+ * ```ts
  * read("install") // returns "install"
  * read("babel")   // returns "babel"
  * ```

@@ -8,11 +8,11 @@ import argv from './argv';
  *
  * Example:
  *
- * ```shell
+ * ```sh
  * cli --output test -p es2015,react --verbose
  * ```
  *
- * ```typescript
+ * ```ts
  * strictOptions([
  *     ["another"]      // for flags array is same as object notation
  *     "verbose"        // only one variant of name
@@ -100,11 +100,11 @@ export function strictOptions(flagsNames: INames[], optionsNames: INames[]): obj
  *
  * Example:
  *
- * ```shell
+ * ```sh
  * cli --output=test -p=es2015,react --verbose
  * ```
  *
- * ```typescript
+ * ```ts
  * strictOptionsEqual(
  *     {"output": "o"},  // fullname and shirtname
  *     ["plugins", "p"], // fullname and shirtname for array

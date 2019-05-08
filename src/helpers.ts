@@ -5,7 +5,7 @@ import { INames } from './types';
  *
  * Example:
  *
- * ```typescript
+ * ```ts
  * findName('o', [
  * 	   { 'output': 'o' },
  *     ['plugins', 'p']
