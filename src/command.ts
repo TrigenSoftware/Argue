@@ -13,9 +13,9 @@ import argv from './argv';
  *
  * ```ts
  * expect(
- *     {"install": "i"}, // fullname and shirtname
- *     ["update", "u"],  // also fullname and shirtname
- *     "info"            // only one variant of name
+ *     {'install': 'i'}, // fullname and shirtname
+ *     ['update', 'u'],  // also fullname and shirtname
+ *     'info'            // only one variant of name
  * )
  * ```
  *
@@ -32,7 +32,7 @@ export function expect(...names: INames[]): string {
 	const argument = findName(sourceKey, names);
 
 	if (!argument) {
-		throw new Error(`Unexpected argument "${sourceKey}".`);
+		throw new Error(`Unexpected argument '${sourceKey}'.`);
 	}
 
 	const [fullName] = argument;
@@ -50,8 +50,8 @@ export function expect(...names: INames[]): string {
  * ```
  *
  * ```ts
- * read("install") // returns "install"
- * read("babel")   // returns "babel"
+ * read('install') // returns 'install'
+ * read('babel')   // returns 'babel'
  * ```
  *
  * @return argument
@@ -73,6 +73,6 @@ export function read(): string {
 export function end(): void {
 
 	if (argv.length) {
-		throw new Error(`Unexpected argument "${argv[0]}".`);
+		throw new Error(`Unexpected argument '${argv[0]}'.`);
 	}
 }

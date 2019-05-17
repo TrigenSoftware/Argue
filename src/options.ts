@@ -14,11 +14,11 @@ import argv from './argv';
  *
  * ```ts
  * options([
- *     ["another"]      // for flags array is same as object notation
- *     "verbose"        // only one variant of name
+ *     ['another']      // for flags array is same as object notation
+ *     'verbose'        // only one variant of name
  * ], [
- *     {"output": "o"}, // fullname and shirtname
- *     ["plugins", "p"] // fullname and shirtname for array
+ *     {'output': 'o'}, // fullname and shirtname
+ *     ['plugins', 'p'] // fullname and shirtname for array
  * ])
  * ```
  *
@@ -51,7 +51,7 @@ export function options(flagsNames: INames[], optionsNames: INames[]): object {
 		const optionKey = findName(sourceKey, optionsNames);
 
 		if (!flagKey && !optionKey) {
-			throw new Error(`Unexpected key "${sourceKey}".`);
+			throw new Error(`Unexpected key '${sourceKey}'.`);
 		}
 
 		if (!flagKey && optionKey && i === argc - 1) {
@@ -72,9 +72,9 @@ export function options(flagsNames: INames[], optionsNames: INames[]): object {
 			remove.unshift(i++);
 
 			if (optionIsArray) {
-				value = value.split(',').map(element => element.replace(/^['"]|["']$/g, ''));
+				value = value.split(',').map(element => element.replace(/^['']|['']$/g, ''));
 			} else {
-				value = value.replace(/^['"]|["']$/g, '');
+				value = value.replace(/^['']|['']$/g, '');
 			}
 
 			options[optionFullName] = value;
@@ -87,7 +87,7 @@ export function options(flagsNames: INames[], optionsNames: INames[]): object {
 			options[flagFullName] = true;
 
 		} else {
-			throw new Error(`Unexpected key "${value}".`);
+			throw new Error(`Unexpected key '${value}'.`);
 		}
 
 		remove.unshift(i);
@@ -110,9 +110,9 @@ export function options(flagsNames: INames[], optionsNames: INames[]): object {
  *
  * ```ts
  * optionsEqual(
- *     {"output": "o"},  // fullname and shirtname
- *     ["plugins", "p"], // fullname and shirtname for array
- *     "verbose"         // only one variant of name
+ *     {'output': 'o'},  // fullname and shirtname
+ *     ['plugins', 'p'], // fullname and shirtname for array
+ *     'verbose'         // only one variant of name
  * )
  * ```
  *
@@ -146,7 +146,7 @@ export function optionsEqual(...names: INames[]): object {
 		remove.unshift(i);
 
 		if (!key) {
-			throw new Error(`Unexpected key "${sourceKey}".`);
+			throw new Error(`Unexpected key '${sourceKey}'.`);
 		}
 
 		const [
@@ -158,9 +158,9 @@ export function optionsEqual(...names: INames[]): object {
 			value = true;
 		} else
 		if (isArray) {
-			value = value.split(',').map(element => element.replace(/^['"]|["']$/g, ''));
+			value = value.split(',').map(element => element.replace(/^['']|['']$/g, ''));
 		} else {
-			value = value.replace(/^['"]|["']$/g, '');
+			value = value.replace(/^['']|['']$/g, '');
 		}
 
 		options[fullName] = value;
