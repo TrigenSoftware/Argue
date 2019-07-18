@@ -9,7 +9,7 @@ describe('strictOptions()', () => {
 			it('should throw error when given flag is doesn\'t expected', () => {
 
 				Argue.setArguments('--verbose');
-				expect(() => Argue.strictOptions(['silent'], [])).toThrow(/Unexpected key "verbose"/);
+				expect(() => Argue.strictOptions(['silent'], [])).toThrow(/Unexpected key 'verbose'/);
 			});
 
 			it('should return empty object when no more arguments', () => {
@@ -38,7 +38,7 @@ describe('strictOptions()', () => {
 			it('should throw error when given flag is doesn\'t expected', () => {
 
 				Argue.setArguments('--verbose');
-				expect(() => Argue.strictOptions([['silent', 's']], [])).toThrow(/Unexpected key "verbose"/);
+				expect(() => Argue.strictOptions([['silent', 's']], [])).toThrow(/Unexpected key 'verbose'/);
 			});
 
 			it('should return empty object when no more arguments', () => {
@@ -75,7 +75,7 @@ describe('strictOptions()', () => {
 			it('should throw error when given flag is doesn\'t expected', () => {
 
 				Argue.setArguments('--verbose');
-				expect(() => Argue.strictOptions([{ 'silent': 's' }], [])).toThrow(/Unexpected key "verbose"/);
+				expect(() => Argue.strictOptions([{ 'silent': 's' }], [])).toThrow(/Unexpected key 'verbose'/);
 			});
 
 			it('should return empty object when no more arguments', () => {
@@ -115,7 +115,7 @@ describe('strictOptions()', () => {
 			it('should throw error when given option is doesn\'t expected', () => {
 
 				Argue.setArguments('--input');
-				expect(() => Argue.strictOptions([], ['output'])).toThrow(/Unexpected key "input"/);
+				expect(() => Argue.strictOptions([], ['output'])).toThrow(/Unexpected key 'input'/);
 			});
 
 			it('should throw error when value of option is skiped', () => {
@@ -150,7 +150,7 @@ describe('strictOptions()', () => {
 			it('should throw error when given option is doesn\'t expected', () => {
 
 				Argue.setArguments('--input');
-				expect(() => Argue.strictOptions([], [['output', 'o']])).toThrow(/Unexpected key "input"/);
+				expect(() => Argue.strictOptions([], [['output', 'o']])).toThrow(/Unexpected key 'input'/);
 			});
 
 			it('should throw error when value of option is skiped', () => {
@@ -209,7 +209,7 @@ describe('strictOptions()', () => {
 			it('should throw error when given option is doesn\'t expected', () => {
 
 				Argue.setArguments('--input');
-				expect(() => Argue.strictOptions([], [{ 'output': 'o' }])).toThrow(/Unexpected key "input"/);
+				expect(() => Argue.strictOptions([], [{ 'output': 'o' }])).toThrow(/Unexpected key 'input'/);
 			});
 
 			it('should throw error when value of option is skiped', () => {

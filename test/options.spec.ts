@@ -9,7 +9,7 @@ describe('options()', () => {
 			it('should throw error when given flag is doesn\'t expected', () => {
 
 				Argue.setArguments('--verbose');
-				expect(() => Argue.options(['silent'], [])).toThrow(/Unexpected key "verbose"/);
+				expect(() => Argue.options(['silent'], [])).toThrow(/Unexpected key 'verbose'/);
 			});
 
 			it('should return empty object when no more arguments', () => {
@@ -46,7 +46,7 @@ describe('options()', () => {
 			it('should throw error when given flag is doesn\'t expected', () => {
 
 				Argue.setArguments('--verbose');
-				expect(() => Argue.options([['silent', 's']], [])).toThrow(/Unexpected key "verbose"/);
+				expect(() => Argue.options([['silent', 's']], [])).toThrow(/Unexpected key 'verbose'/);
 			});
 
 			it('should return empty object when no more arguments', () => {
@@ -99,7 +99,7 @@ describe('options()', () => {
 			it('should throw error when given flag is doesn\'t expected', () => {
 
 				Argue.setArguments('--verbose');
-				expect(() => Argue.options([{ 'silent': 's' }], [])).toThrow(/Unexpected key "verbose"/);
+				expect(() => Argue.options([{ 'silent': 's' }], [])).toThrow(/Unexpected key 'verbose'/);
 			});
 
 			it('should return empty object when no more arguments', () => {
@@ -155,7 +155,7 @@ describe('options()', () => {
 			it('should throw error when given option is doesn\'t expected', () => {
 
 				Argue.setArguments('--input');
-				expect(() => Argue.options([], ['output'])).toThrow(/Unexpected key "input"/);
+				expect(() => Argue.options([], ['output'])).toThrow(/Unexpected key 'input'/);
 			});
 
 			it('should throw error when value of option is skiped', () => {
@@ -198,7 +198,7 @@ describe('options()', () => {
 			it('should throw error when given option is doesn\'t expected', () => {
 
 				Argue.setArguments('--input');
-				expect(() => Argue.options([], [['output', 'o']])).toThrow(/Unexpected key "input"/);
+				expect(() => Argue.options([], [['output', 'o']])).toThrow(/Unexpected key 'input'/);
 			});
 
 			it('should throw error when value of option is skiped', () => {
@@ -273,7 +273,7 @@ describe('options()', () => {
 			it('should throw error when given option is doesn\'t expected', () => {
 
 				Argue.setArguments('--input');
-				expect(() => Argue.options([], [{ 'output': 'o' }])).toThrow(/Unexpected key "input"/);
+				expect(() => Argue.options([], [{ 'output': 'o' }])).toThrow(/Unexpected key 'input'/);
 			});
 
 			it('should throw error when value of option is skiped', () => {

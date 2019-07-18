@@ -11,7 +11,7 @@ describe('expect()', () => {
 	it('should throw error when given command is doesn\'t expected', () => {
 
 		Argue.setArguments('delete', 'mocha');
-		expect(() => Argue.expect('install', 'remove')).toThrow(/Unexpected argument "delete"/);
+		expect(() => Argue.expect('install', 'remove')).toThrow(/Unexpected argument 'delete'/);
 	});
 
 	describe('when argument alias described as object', () => {

@@ -7,7 +7,7 @@ describe('strictOptionsEqual()', () => {
 		it('should throw error when given option is doesn\'t expected', () => {
 
 			Argue.setArguments('--input');
-			expect(() => Argue.strictOptionsEqual('output')).toThrow(/Unexpected key "input"/);
+			expect(() => Argue.strictOptionsEqual('output')).toThrow(/Unexpected key 'input'/);
 		});
 
 		it('should return empty object when no more arguments', () => {
@@ -37,7 +37,7 @@ describe('strictOptionsEqual()', () => {
 		it('should throw error when given option is doesn\'t expected', () => {
 
 			Argue.setArguments('--input');
-			expect(() => Argue.strictOptionsEqual(['output', 'o'])).toThrow(/Unexpected key "input"/);
+			expect(() => Argue.strictOptionsEqual(['output', 'o'])).toThrow(/Unexpected key 'input'/);
 		});
 
 		it('should return empty object when no more arguments', () => {
@@ -90,7 +90,7 @@ describe('strictOptionsEqual()', () => {
 		it('should throw error when given option is doesn\'t expected', () => {
 
 			Argue.setArguments('--input');
-			expect(() => Argue.strictOptionsEqual({ 'output': 'o' })).toThrow(/Unexpected key "input"/);
+			expect(() => Argue.strictOptionsEqual({ 'output': 'o' })).toThrow(/Unexpected key 'input'/);
 		});
 
 		it('should return empty object when no more arguments', () => {
