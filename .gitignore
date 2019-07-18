@@ -45,3 +45,6 @@ lib
 
 # Rollup
 .rpt2_cache
+
+# Docs direcotry
+docs
