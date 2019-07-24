@@ -175,7 +175,7 @@ export function strictOptions(flagsNames, optionsNames) {
 		let value = argv[0];
 
 		if (optionKey && value.indexOf('--') != 0
-			&& (value.indexOf('-') != 0 && value.length != shirtArgLength)
+			&& value.indexOf('-') != 0
 		) {
 
 			argv.shift();
@@ -292,7 +292,7 @@ export function options(flagsNames, optionsNames) {
 	for (let i = 0, argument = argvc[i]; i < argc; argument = argvc[++i]) {
 
 		if (argument.indexOf('--') != 0
-			&& (argument.indexOf('-') != 0 || argument.length != shirtArgLength)
+			&& argument.indexOf('-') != 0
 		) {
 			continue;
 		}
@@ -312,7 +312,7 @@ export function options(flagsNames, optionsNames) {
 		let value = argvc[i + 1];
 
 		if (optionKey && value.indexOf('--') != 0
-			&& (value.indexOf('-') != 0 && value.length != shirtArgLength)
+			&& value.indexOf('-') != 0
 		) {
 
 			remove.unshift(i++);

@@ -1,6 +1,6 @@
 {
   "name": "argue-cli",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Node.js CLI arguments parser.",
   "author": "dangreen",
   "license": "MIT",
@@ -39,7 +39,7 @@
     "babel-register": "^6.26.0",
     "coveralls": "^3.0.0",
     "escope": "^3.6.0",
-    "eslint": "^4.14.0",
+    "eslint": "^6.1.0",
     "eslint-config-trigen": "^2.3.1",
     "mocha": "^4.0.1",
     "nyc": "^11.4.1",
