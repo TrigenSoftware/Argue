@@ -42,7 +42,7 @@
     "eslint": "^6.1.0",
     "eslint-config-trigen": "^2.3.1",
     "mocha": "^6.2.0",
-    "nyc": "^11.4.1",
+    "nyc": "^15.0.0",
     "rollup": "^0.53.0",
     "rollup-plugin-babel": "^3.0.3",
     "rollup-plugin-eslint": "^4.0.0",
