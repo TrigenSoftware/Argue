@@ -39,7 +39,7 @@
     "babel-register": "^6.26.0",
     "coveralls": "^3.0.0",
     "escope": "^3.6.0",
-    "eslint": "^6.1.0",
+    "eslint": "^7.0.0",
     "eslint-config-trigen": "^2.3.1",
     "mocha": "^6.2.0",
     "nyc": "^11.4.1",
