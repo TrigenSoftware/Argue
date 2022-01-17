@@ -2,6 +2,9 @@
 
 [![NPM version][npm]][npm-url]
 [![Node version][node]][node-url]
+[![Dependencies status][deps]][deps-url]
+[![Build status][build]][build-url]
+[![Bundle size][size]][size-url]
 
 [npm]: https://img.shields.io/npm/v/argue-cli.svg
 [npm-url]: https://www.npmjs.com/package/argue-cli
@@ -9,91 +12,153 @@
 [node]: https://img.shields.io/node/v/argue-cli.svg
 [node-url]: https://nodejs.org
 
-Node.js CLI arguments parser.
+[deps]: https://img.shields.io/librariesio/release/npm/argue-cli
+[deps-url]: https://libraries.io/npm/argue-cli/tree
 
-# Install
+[build]: https://img.shields.io/github/workflow/status/TrigenSoftware/argue-cli/CI.svg
+[build-url]: https://github.com/TrigenSoftware/argue-cli/actions
+
+[size]: https://img.shields.io/bundlephobia/minzip/argue-cli
+[size-url]: https://bundlephobia.com/package/argue-cli
+
+A thin and strongly typed CLI argument parser for Node.js.
+
+## Usage
+
+1. Install
 
 ```bash
-npm i -S argue-cli
-# or
+# yarn
 yarn add argue-cli
+# pnpm
+pnpm add argue-cli
+# npm
+npm i argue-cli
 ```
 
-# API
+2. Import in your code and use it!
 
-### expect(...names)
-Strict expectation one of given commands.
-Returns full variant of expected argument.
-```js
-expect(
-    {"install": "i"}, // full name and shirt name, e.g. `npm install`, `npm i` 
-    ["update", "u"],  // also full name and shirt name, e.g. `npm update`, `npm u`   
-    "info"            // only one variant of name
-);
-```
+```ts
+import { read, end, expect, alias, option, readOptions } from 'argue-cli'
 
-### read()
-Strict reading of argument.
-Returns argument.
-```js
-read(); // e.g. for `npm babel` returns "babel"
-```
-
-### end()
-Strict expectation of end.
-```js
-end(); // e.g. for `npm babel` throws Error.
-```
-
-### strictOptions(flagsNames, optionsNames)
-Strict reading of flags and options.
-Returns fullname-value pairs object.
-```js
-strictOptions([
-    ["another"],     // for flags array is same as object notation
-    "verbose"        // only one variant of name, e.g. `babel --verbose`
-], [
-    {"output": "o"}, // full name and shirt name, e.g. `babel --output ./main.js`, `babel -o ./main.js` 
-    ["plugins", "p"] // fullname and shirtname for array, e.g. `babel --plugins commonjs,decorators`, `babel -p commonjs,decorators` 
-])
-```
-
-### strictOptionsEqual(...names)
-Strict reading of options with equal sign. 
-If option is provided without value it will interpreted as `true`.
-Returns fullname-value pairs object.
-```js
-strictOptionsEqual(
-    {"output": "o"},  // full name and shirt name, e.g. `babel --output=./main.js`, `babel -o=./main.js` 
-    ["plugins", "p"], // fullname and shirtname for array, e.g. `babel --plugins=commonjs,decorators`, `babel -p=commonjs,decorators` 
-    "verbose"         // only one variant of name, e.g. `babel --verbose`
+/**
+ * Expect and read one of the commands
+ */
+const command = expect(
+  alias('install', 'i'),
+  'remove'
 )
+let options = {}
+
+if (command === 'install') {
+  /**
+   * Read passed options
+   */
+  options = readOptions(
+    option(alias('save', 'S'), Boolean),
+    option(alias('saveDev', 'save-dev', 'D'), Boolean),
+    option('workspace', String)
+  )
+}
+
+/**
+ * Read next argument
+ */
+const packageName = read()
+
+/**
+ * Expect end of the arguments
+ */
+end()
+
+/* ... */
 ```
 
-### options(flagsNames, optionsNames)
-Unlimited reading of flags and options.
-Returns fullname-value pairs object.
-```js
-options([
-    ["another"],     // for flags array is same as object notation
-    "verbose"        // only one variant of name, e.g. `babel compile script.js --verbose`
-], [
-    {"output": "o"}, // full name and shirt name, e.g. `babel compile script.js --output ./main.js`, `babel compile script.js -o ./main.js` 
-    ["plugins", "p"] // fullname and shirtname for array, e.g. `babel --plugins commonjs,decorators compile script.js`, `babel -p commonjs,decorators compile script.js` 
-])
+## API
+
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+<td>
+
+```ts
+function read(): string
 ```
 
-### optionsEqual(...names)
-Unlimited reading of options with equal sign. 
-If option is provided without value it will interpreted as `true`.
-Returns fullname-value pairs object.
-```js
-optionsEqual(
-    {"output": "o"},  // full name and shirt name, e.g. `babel compile script.js --output=./main.js`, `babel compile script.js -o=./main.js` 
-    ["plugins", "p"], // fullname and shirtname for array, e.g. `babel --plugins=commonjs,decorators compile script.js`, `babel -p=commonjs,decorators compile script.js` 
-    "verbose"         // only one variant of name, e.g. `babel compile script.js --verbose`
-)
+</td>
+<td>
+  Read next argument. Throws error if no next argument.
+</td>
+    </tr>
+    <tr>
+<td>
+
+```ts
+function end(): void
 ```
 
----
-[![NPM](https://nodei.co/npm/argue-cli.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/argue-cli/)
+</td>
+<td>
+  Expectation of the end. Throws an error if there are more arguments left.
+</td>
+    </tr>
+    <tr>
+<td>
+
+```ts
+function expect(...argRefs: ArgRef[]): string
+```
+
+</td>
+<td>
+  Expect one of the given arguments.
+</td>
+    </tr>
+    <tr>
+<td>
+
+```ts
+function alias(name: string, ...aliases: string[]): AliasArgRef
+```
+
+</td>
+<td>
+  Describe argument with aliases.
+</td>
+    </tr>
+    <tr>
+<td>
+
+```ts
+function option(argRef: ArgRef, type: PrimitiveConstructor): OptionReader
+```
+
+</td>
+<td>
+  Describe option with value.
+</td>
+    </tr>
+    <tr>
+<td>
+
+```ts
+function readOptions(...optionReaders: OptionReader[]): OptionResult
+```
+
+</td>
+<td>
+  Read options from arguments.
+</td>
+    </tr>
+  </tbody>
+</table>
+
+## TypeScript
+
+In [API section](#API) types are described in a simplified way. Detailed example of the types you can see [here](test/argue.test-d.ts).
