@@ -4,6 +4,7 @@
 [![Node version][node]][node-url]
 [![Dependencies status][deps]][deps-url]
 [![Build status][build]][build-url]
+[![Coverage status][coverage]][coverage-url]
 [![Bundle size][size]][size-url]
 
 [npm]: https://img.shields.io/npm/v/argue-cli.svg
@@ -17,6 +18,9 @@
 
 [build]: https://img.shields.io/github/workflow/status/TrigenSoftware/Argue/CI.svg
 [build-url]: https://github.com/TrigenSoftware/Argue/actions
+
+[coverage]: https://img.shields.io/coveralls/TrigenSoftware/Argue.svg
+[coverage-url]: https://coveralls.io/r/TrigenSoftware/Argue
 
 [size]: https://img.shields.io/bundlephobia/minzip/argue-cli
 [size-url]: https://bundlephobia.com/package/argue-cli
