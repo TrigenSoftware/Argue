@@ -1,4 +1,4 @@
-import { setArgs } from './argv'
+import { setArgs, argv } from './argv'
 import { option } from './args'
 import { readOptions } from './options'
 
@@ -14,12 +14,14 @@ describe('options', () => {
       setArgs('--verbose')
 
       expect(readOptions()).toEqual({})
+      expect(argv).toEqual(['--verbose'])
     })
 
     it('should return empty object if no options in args', () => {
       setArgs('--debug')
 
       expect(readOptions(option('verbose', Boolean))).toEqual({})
+      expect(argv).toEqual(['--debug'])
     })
 
     it('should return options with values', () => {
@@ -42,6 +44,7 @@ describe('options', () => {
           'c'
         ]
       })
+      expect(argv).toEqual(['compile', '--unknown'])
     })
 
     it('should throw error on unexpected end', () => {

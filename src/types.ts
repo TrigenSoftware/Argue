@@ -14,12 +14,7 @@ export type ArgRefName<T extends ArgRef<string>> =
 
 export type OptionsReaderState = Record<string, unknown>
 
-export type OptionsReaderNext =
-  <T extends boolean>(required?: T) => (
-    T extends true
-      ? string
-      : string | undefined
-  )
+export type OptionsReaderRead = () => string
 
 export type PrimitiveConstructor = StringConstructor | NumberConstructor | ArrayConstructor | BooleanConstructor
 
@@ -32,11 +27,11 @@ export type OptionValueType<T extends PrimitiveConstructor> =
         ? string[]
         : boolean
 
-export type OptionResult<T extends string, K extends PrimitiveConstructor> = Record<T, OptionValueType<K>>
+export type OptionResult<T extends string = string, K extends PrimitiveConstructor = PrimitiveConstructor> = Record<T, OptionValueType<K>>
 
-export type OptionReader<T extends OptionResult<string, PrimitiveConstructor> = OptionResult<string, PrimitiveConstructor>> =
+export type OptionReader<T extends OptionResult = OptionResult> =
   (
     option: string,
-    next: OptionsReaderNext,
+    read: OptionsReaderRead,
     options: OptionsReaderState
   ) => T | null

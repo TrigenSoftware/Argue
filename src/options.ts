@@ -1,5 +1,5 @@
 import { argv } from './argv'
-import { OptionReader } from './types'
+import { OptionReader, OptionResult } from './types'
 import { Merge, ReturnTypes, UnionMerge } from './utils'
 
 function isOption(arg: string) {
@@ -17,7 +17,7 @@ function createOptionReader<T extends OptionReader[]>(optionReaders: [...T]) {
         return readOption
       }
 
-      return (option, next, options) => readOption(option, next, options) ?? readNextOption(option, next, options)
+      return (option, read, options) => readOption(option, read, options) ?? readNextOption(option, read, options)
     },
     null
   )
@@ -31,18 +31,31 @@ function createOptionReader<T extends OptionReader[]>(optionReaders: [...T]) {
  * @returns Options with values.
  */
 export function readOptions<T extends OptionReader[]>(...optionReaders: [...T]): Partial<Merge<ReturnTypes<T>>> {
-  if (!argv.length || !optionReaders.length) {
+  if (!argv.length) {
     return {}
   }
 
   const readOption = createOptionReader(optionReaders)
+
+  if (!readOption) {
+    return {}
+  }
+
   const options = {}
   let i = 0
   let arg = argv[i]
-  const next = (required = false) => {
+  let optionResult: OptionResult | null
+  const next = () => {
     arg = argv[++i]
+  }
+  const remove = () => {
+    argv.splice(i--, 1)
+  }
+  const read = () => {
+    next()
+    remove()
 
-    if (required && !arg) {
+    if (!arg) {
       throw new Error('Unexpected end of arguments')
     }
 
@@ -52,7 +65,12 @@ export function readOptions<T extends OptionReader[]>(...optionReaders: [...T]):
   // eslint-disable-next-line no-unmodified-loop-condition
   while (arg) {
     if (isOption(arg)) {
-      Object.assign(options, readOption?.(removePrefix(arg), next, options))
+      optionResult = readOption(removePrefix(arg), read, options)
+
+      if (optionResult) {
+        remove()
+        Object.assign(options, optionResult)
+      }
     }
 
     next()
