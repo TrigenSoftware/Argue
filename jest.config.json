@@ -1,0 +1,16 @@
+{
+  "testEnvironment": "node",
+  "testRegex": "src/.*\\.spec\\.(jsx?|tsx?)$",
+  "transform": {
+    "^.+\\.(t|j)sx?$": "@swc/jest"
+  },
+  "collectCoverage": true,
+  "collectCoverageFrom": [
+    "src/**/*.{js,jsx,ts,tsx}",
+    "!**/*.d.ts"
+  ],
+  "coverageReporters": [
+    "lcovonly",
+    "text"
+  ]
+}
