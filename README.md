@@ -15,8 +15,8 @@
 [deps]: https://img.shields.io/librariesio/release/npm/argue-cli
 [deps-url]: https://libraries.io/npm/argue-cli/tree
 
-[build]: https://img.shields.io/github/workflow/status/TrigenSoftware/argue-cli/CI.svg
-[build-url]: https://github.com/TrigenSoftware/argue-cli/actions
+[build]: https://img.shields.io/github/workflow/status/TrigenSoftware/Argue/CI.svg
+[build-url]: https://github.com/TrigenSoftware/Argue/actions
 
 [size]: https://img.shields.io/bundlephobia/minzip/argue-cli
 [size-url]: https://bundlephobia.com/package/argue-cli
