@@ -3,7 +3,7 @@ import {
   ArgRef,
   PrimitiveConstructor,
   OptionsReaderState,
-  OptionsReaderNext,
+  OptionsReaderRead,
   OptionResult
 } from './types'
 import { matchArgName } from './utils'
@@ -30,12 +30,12 @@ export function alias<T extends string>(name: T, alias: string, ...restAliases: 
  */
 export function option<T extends string, K extends PrimitiveConstructor>(argRef: ArgRef<T>, type: K) {
   if (type === String) {
-    return (option: string, next: OptionsReaderNext) => {
+    return (option: string, read: OptionsReaderRead) => {
       const argName = matchArgName(argRef, option)
 
       if (argName) {
         return {
-          [argName]: next(true)
+          [argName]: read()
         } as OptionResult<T, K>
       }
 
@@ -44,12 +44,12 @@ export function option<T extends string, K extends PrimitiveConstructor>(argRef:
   }
 
   if (type === Number) {
-    return (option: string, next: OptionsReaderNext) => {
+    return (option: string, read: OptionsReaderRead) => {
       const argName = matchArgName(argRef, option)
 
       if (argName) {
         return {
-          [argName]: parseFloat(next(true))
+          [argName]: parseFloat(read())
         } as OptionResult<T, K>
       }
 
@@ -58,12 +58,12 @@ export function option<T extends string, K extends PrimitiveConstructor>(argRef:
   }
 
   if (type === Array) {
-    return (option: string, next: OptionsReaderNext, options: OptionsReaderState) => {
+    return (option: string, read: OptionsReaderRead, options: OptionsReaderState) => {
       const argName = matchArgName(argRef, option)
 
       if (argName) {
         const prevValues = options[argName]
-        const values = next(true).split(',')
+        const values = read().split(',')
 
         return {
           [argName]: Array.isArray(prevValues)
