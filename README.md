@@ -25,7 +25,7 @@
 [size]: https://img.shields.io/bundlephobia/minzip/argue-cli
 [size-url]: https://bundlephobia.com/package/argue-cli
 
-A thin and strongly typed CLI argument parser for Node.js.
+A thin and strongly typed CLI arguments parser for Node.js.
 
 ## Usage
 

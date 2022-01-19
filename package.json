@@ -2,7 +2,7 @@
   "name": "argue-cli",
   "type": "module",
   "version": "2.0.0",
-  "description": "A thin and strongly typed CLI argument parser for Node.js.",
+  "description": "A thin and strongly typed CLI arguments parser for Node.js.",
   "author": "dangreen",
   "license": "MIT",
   "repository": {
