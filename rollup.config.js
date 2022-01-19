@@ -31,21 +31,21 @@ const plugins = targets => [
 
 export default [
   {
-    input: pkg.main,
+    input: pkg.exports,
     plugins: plugins(nodeEsm.join(', ')),
     external,
     output: {
-      file: pkg.publishConfig.module,
+      file: pkg.publishConfig.exports.import,
       format: 'es',
       sourcemap: true
     }
   },
   {
-    input: pkg.main,
+    input: pkg.exports,
     plugins: plugins(node.join(', ')),
     external,
     output: {
-      file: pkg.publishConfig.main,
+      file: pkg.publishConfig.exports.require,
       format: 'cjs',
       sourcemap: true
     }
