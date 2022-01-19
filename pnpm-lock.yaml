@@ -19,7 +19,7 @@ specifiers:
   '@types/jest': ^27.4.0
   '@types/node': ^17.0.8
   browserslist: ^4.19.1
-  clean-publish: ^3.4.0
+  clean-publish: ^4.0.0
   commitizen: ^4.2.4
   del-cli: ^4.0.1
   eslint: ^8.0.0
@@ -54,7 +54,7 @@ devDependencies:
   '@types/jest': 27.4.0
   '@types/node': 17.0.8
   browserslist: 4.19.1
-  clean-publish: 3.4.5
+  clean-publish: 4.0.0
   commitizen: 4.2.4_7c5df19f5f7229aa241383981a077ad4
   del-cli: 4.0.1
   eslint: 8.6.0
@@ -2265,16 +2265,14 @@ packages:
       static-extend: 0.1.2
     dev: true
 
-  /clean-publish/3.4.5:
-    resolution: {integrity: sha512-wxtaEqCy/B7lch+bpTPmx9wI8owTODa619UOVA1XfyNaM2bjwv1SkR1IJNDA6rtf89bjiz6UkpfU5HcEL8YJIw==}
-    engines: {node: ^12.0.0 || ^14.0.0 || >= 16.0.0}
+  /clean-publish/4.0.0:
+    resolution: {integrity: sha512-PcOxJSnPgncx/ANmgPw8hj9DDtdLHTxIc6Vh/yXCX7IA9w1oUSx2POL0Vno/7omhyrKxMKTpnRh2wlzwH5zaCw==}
     hasBin: true
     dependencies:
       cross-spawn: 7.0.3
       fast-glob: 3.2.11
-      fs-extra: 10.0.0
-      hosted-git-info: 4.1.0
       lilconfig: 2.0.4
+      micromatch: 4.0.4
     dev: true
 
   /clean-stack/2.2.0:
