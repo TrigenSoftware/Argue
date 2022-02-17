@@ -12,8 +12,18 @@
   "bugs": {
     "url": "https://github.com/TrigenSoftware/Argue/issues"
   },
-  "exports": "./src/index.ts",
+  "keywords": [
+    "cli",
+    "arguments",
+    "parser",
+    "console",
+    "terminal"
+  ],
+  "engines": {
+    "node": ">=14.0.0"
+  },
   "types": "./dist/index.d.ts",
+  "exports": "./src/index.ts",
   "publishConfig": {
     "exports": {
       "import": "./dist/index.js",
@@ -21,9 +31,9 @@
     },
     "directory": "package"
   },
-  "engines": {
-    "node": ">=14.0.0"
-  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "prepublishOnly": "pnpm test && pnpm build && del ./package && clean-publish",
     "postpublish": "del ./package",
@@ -40,13 +50,6 @@
     "release": "pnpm bumpVersion && git push origin master --tags && pnpm createGithubRelease",
     "updateGitHooks": "simple-git-hooks"
   },
-  "keywords": [
-    "cli",
-    "arguments",
-    "parser",
-    "console",
-    "terminal"
-  ],
   "devDependencies": {
     "@babel/core": "^7.16.7",
     "@commitlint/cli": "^16.0.0",
@@ -85,8 +88,5 @@
   "tsd": {
     "directory": "./test"
   },
-  "files": [
-    "dist"
-  ],
   "readme": ""
 }
