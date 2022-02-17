@@ -19,8 +19,8 @@
 [build]: https://img.shields.io/github/workflow/status/TrigenSoftware/Argue/CI.svg
 [build-url]: https://github.com/TrigenSoftware/Argue/actions
 
-[coverage]: https://img.shields.io/coveralls/TrigenSoftware/Argue.svg
-[coverage-url]: https://coveralls.io/r/TrigenSoftware/Argue
+[coverage]: https://img.shields.io/codecov/c/github/TrigenSoftware/Argue.svg
+[coverage-url]: https://app.codecov.io/gh/TrigenSoftware/Argue
 
 [size]: https://img.shields.io/bundlephobia/minzip/argue-cli
 [size-url]: https://bundlephobia.com/package/argue-cli
