@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest'
 import { setArgs } from './argv'
 import * as core from './core'
 import { alias } from './args'

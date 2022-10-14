@@ -1,5 +1,4 @@
 {
-  "root": true,
   "extends": [
     "@trigen/eslint-config",
     "@trigen/eslint-config/typescript",
