@@ -11,9 +11,9 @@ jobs:
       - name: Checkout the repository
         uses: actions/checkout@v2
       - name: Install pnpm
-        uses: pnpm/action-setup@v2.0.1
+        uses: pnpm/action-setup@v2
         with:
-          version: 6
+          version: 7
       - name: Install Node.js
         uses: actions/setup-node@v2
         with:
@@ -30,9 +30,9 @@ jobs:
       - name: Checkout the repository
         uses: actions/checkout@v2
       - name: Install pnpm
-        uses: pnpm/action-setup@v2.0.1
+        uses: pnpm/action-setup@v2
         with:
-          version: 6
+          version: 7
       - name: Install Node.js
         uses: actions/setup-node@v2
         with:
@@ -62,11 +62,11 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v2.1.0
         with:
-          version: 6
+          version: 7
       - name: Install Node.js
         uses: actions/setup-node@v2
         with:
           node-version: 16
           cache: 'pnpm'
       - name: Check package.json files
-        run: pnpm --package=@trigen/lint-package-json dlx lint-package-json
+        run: pnpm dlx @trigen/lint-package-json
