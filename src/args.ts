@@ -5,8 +5,8 @@ import {
   OptionsReaderState,
   OptionsReaderRead,
   OptionResult
-} from './types'
-import { matchArgName } from './utils'
+} from './types.js'
+import { matchArgName } from './utils.js'
 
 /**
  * Describe argument with aliases.

@@ -1,5 +1,5 @@
 
-import { ArgRef } from './types'
+import { ArgRef } from './types.js'
 
 type FlatMerge<T> = T extends infer U ? { [K in keyof U]: U[K] } : never
 
