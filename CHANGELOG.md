@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/TrigenSoftware/Argue/compare/v2.0.0...v2.1.0) (2022-10-14)
+
+
+### Features
+
+* node next module resolution for ts ([#320](https://github.com/TrigenSoftware/Argue/issues/320)) ([ee15b2d](https://github.com/TrigenSoftware/Argue/commit/ee15b2dbde3ed1632c66dd56e0051c4e5435e381))
+
 ## [2.0.0](https://github.com/TrigenSoftware/Argue/compare/v2.0.0-2...v2.0.0) (2022-01-18)
 
 ## [2.0.0-2](https://github.com/TrigenSoftware/Argue/compare/v2.0.0-1...v2.0.0-2) (2022-01-17)
