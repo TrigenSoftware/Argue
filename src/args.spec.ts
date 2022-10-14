@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest'
 import { alias, option } from './args'
 
 describe('args', () => {

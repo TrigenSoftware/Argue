@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest'
 import { setArgs, argv } from './argv'
 import { option } from './args'
 import { readOptions } from './options'
