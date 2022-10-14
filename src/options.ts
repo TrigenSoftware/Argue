@@ -1,6 +1,6 @@
-import { argv } from './argv'
-import { OptionReader, OptionResult } from './types'
-import { Merge, ReturnTypes, UnionMerge } from './utils'
+import { argv } from './argv.js'
+import { OptionReader, OptionResult } from './types.js'
+import { Merge, ReturnTypes, UnionMerge } from './utils.js'
 
 function isOption(arg: string) {
   return /^--?[^-].*/.test(arg)

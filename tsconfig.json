@@ -10,8 +10,8 @@
     "noUnusedParameters": true,
     /* Modules */
     "baseUrl": ".",
-    "module": "esnext",
-    "moduleResolution": "node",
+    "module": "ESNext",
+    "moduleResolution": "NodeNext",
     "resolveJsonModule": true,
     /* Emit */
     "declaration": true,
@@ -25,11 +25,14 @@
     "lib": [
       "esnext"
     ],
-    "target": "esnext",
+    "target": "ESNext",
     /* Completeness */
     "skipLibCheck": true
   },
   "include": [
     "src"
+  ],
+  "exclude": [
+    "**/*.spec.ts"
   ]
 }

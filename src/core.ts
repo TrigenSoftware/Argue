@@ -1,6 +1,6 @@
-import { argv } from './argv'
-import { ArgRef } from './types'
-import { findArgName } from './utils'
+import { argv } from './argv.js'
+import { ArgRef } from './types.js'
+import { findArgName } from './utils.js'
 
 /**
  * Read next argument.

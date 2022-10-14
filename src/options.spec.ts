@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
-import { setArgs, argv } from './argv'
-import { option } from './args'
-import { readOptions } from './options'
+import { setArgs, argv } from './argv.js'
+import { option } from './args.js'
+import { readOptions } from './options.js'
 
 describe('options', () => {
   describe('readOptions', () => {
