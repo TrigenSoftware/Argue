@@ -1,6 +1,7 @@
-import { setArgs } from './argv'
-import * as core from './core'
-import { alias } from './args'
+import { describe, it, expect } from 'vitest'
+import { setArgs } from './argv.js'
+import * as core from './core.js'
+import { alias } from './args.js'
 
 describe('core', () => {
   describe('read', () => {

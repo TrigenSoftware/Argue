@@ -1,4 +1,5 @@
-import { alias, option } from './args'
+import { describe, it, expect } from 'vitest'
+import { alias, option } from './args.js'
 
 describe('args', () => {
   describe('option', () => {

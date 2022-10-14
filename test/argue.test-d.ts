@@ -1,5 +1,5 @@
 import { expectType } from 'tsd'
-import { alias, expect, option, readOptions } from '../src'
+import { alias, expect, option, readOptions } from '../src/index.js'
 
 expectType<'add' | 'install'>(expect('add', alias('install', 'i')))
 
