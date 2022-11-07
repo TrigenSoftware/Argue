@@ -64,7 +64,7 @@
     "@trigen/eslint-config": "8.0.0-alpha.19",
     "@trigen/scripts": "8.0.0-alpha.18",
     "@types/node": "^18.8.5",
-    "@vitest/coverage-c8": "^0.24.3",
+    "@vitest/coverage-c8": "^0.25.0",
     "browserslist": "^4.21.4",
     "clean-publish": "^4.0.1",
     "commitizen": "^4.2.5",
@@ -81,7 +81,7 @@
     "tsd": "^0.24.1",
     "typescript": "^4.8.4",
     "vite": "^3.1.8",
-    "vitest": "^0.24.3"
+    "vitest": "^0.25.0"
   },
   "tsd": {
     "directory": "./test"
