@@ -23,7 +23,7 @@ specifiers:
   rollup-plugin-swc: ^0.2.1
   simple-git-hooks: ^2.8.0
   simple-github-release: ^1.0.0
-  size-limit: ^7.0.8
+  size-limit: ^8.0.0
   standard-version: ^9.5.0
   tsd: ^0.24.1
   typescript: ^4.8.4
@@ -35,7 +35,7 @@ devDependencies:
   '@commitlint/config-conventional': 17.1.0
   '@commitlint/cz-commitlint': 17.1.2_t4c2tiasuzierfjgabpqbawvcu
   '@rollup/plugin-node-resolve': 15.0.0_rollup@2.79.1
-  '@size-limit/preset-small-lib': 8.1.0_size-limit@7.0.8
+  '@size-limit/preset-small-lib': 8.1.0_size-limit@8.1.0
   '@swc/core': 1.3.8
   '@trigen/browserslist-config': 8.0.0-alpha.5
   '@trigen/eslint-config': 8.0.0-alpha.19_z4bbprzjrhnsfa24uvmcbu7f5q
@@ -53,7 +53,7 @@ devDependencies:
   rollup-plugin-swc: 0.2.1_5353fur52kvuqgfink4vx7pyzu
   simple-git-hooks: 2.8.0
   simple-github-release: 1.0.0
-  size-limit: 7.0.8
+  size-limit: 8.1.0
   standard-version: 9.5.0
   tsd: 0.24.1
   typescript: 4.8.4
@@ -535,7 +535,7 @@ packages:
       picomatch: 2.3.1
     dev: true
 
-  /@size-limit/esbuild/8.1.0_size-limit@7.0.8:
+  /@size-limit/esbuild/8.1.0_size-limit@8.1.0:
     resolution: {integrity: sha512-Lq+vJAUO13RXbiNF4bZOB07LmzMURkbV8Z6dhAkhTdAVWYLUn0zjfIe3O6IMwhj9dqJ0WtadhKHJvNQKG+po3w==}
     engines: {node: ^14.0.0 || ^16.0.0 || >=18.0.0}
     peerDependencies:
@@ -543,27 +543,27 @@ packages:
     dependencies:
       esbuild: 0.15.11
       nanoid: 3.3.4
-      size-limit: 7.0.8
+      size-limit: 8.1.0
     dev: true
 
-  /@size-limit/file/8.1.0_size-limit@7.0.8:
+  /@size-limit/file/8.1.0_size-limit@8.1.0:
     resolution: {integrity: sha512-Ur+NgJSRHBnbQBrD8X2doxXYdBcVJsMxe2KfWrUmnZ6wYz09YKhQ1iYLqNztjf2yf/JEp00zp1vyhmimUQfUHQ==}
     engines: {node: ^14.0.0 || ^16.0.0 || >=18.0.0}
     peerDependencies:
       size-limit: 8.1.0
     dependencies:
       semver: 7.3.7
-      size-limit: 7.0.8
+      size-limit: 8.1.0
     dev: true
 
-  /@size-limit/preset-small-lib/8.1.0_size-limit@7.0.8:
+  /@size-limit/preset-small-lib/8.1.0_size-limit@8.1.0:
     resolution: {integrity: sha512-fs0XD0+rN4SVKGUwae7VMX1uDqK+oUYNGlPe7E0oKhwAH6ek08iH8qiEm0q9IKDrsCfZ9/d/pqNpg9di3p1SVw==}
     peerDependencies:
       size-limit: 8.1.0
     dependencies:
-      '@size-limit/esbuild': 8.1.0_size-limit@7.0.8
-      '@size-limit/file': 8.1.0_size-limit@7.0.8
-      size-limit: 7.0.8
+      '@size-limit/esbuild': 8.1.0_size-limit@8.1.0
+      '@size-limit/file': 8.1.0_size-limit@8.1.0
+      size-limit: 8.1.0
     dev: true
 
   /@swc/core-android-arm-eabi/1.3.8:
@@ -4629,9 +4629,9 @@ packages:
       - encoding
     dev: true
 
-  /size-limit/7.0.8:
-    resolution: {integrity: sha512-3h76c9E0e/nNhYLSR7IBI/bSoXICeo7EYkYjlyVqNIsu7KvN/PQmMbIXeyd2QKIF8iZKhaiZQoXLkGWbyPDtvQ==}
-    engines: {node: ^12.0.0 || ^14.0.0 || >=16.0.0}
+  /size-limit/8.1.0:
+    resolution: {integrity: sha512-bUL+Uyyt/G+a1XzKlI2WKHVDepmXtqMDhF65pdtjccheiQTNjExWW4nFefgbRL2QgNTzRfK6ayFKjO3o4ER4gg==}
+    engines: {node: ^14.0.0 || ^16.0.0 || >=18.0.0}
     hasBin: true
     dependencies:
       bytes-iec: 3.1.1
