@@ -1,5 +1,5 @@
 import { argv } from './argv.js'
-import { ArgRef } from './types.js'
+import type { ArgRef } from './types.js'
 import { findArgName } from './utils.js'
 
 /**
