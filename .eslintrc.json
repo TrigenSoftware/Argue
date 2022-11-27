@@ -14,6 +14,10 @@
     "project": ["./tsconfig.json", "./test/tsconfig.json"]
   },
   "rules": {
-    "no-console": "off"
-  }
+    "no-console": "off",
+    "@typescript-eslint/keyword-spacing": ["error", {}]
+  },
+  "ignorePatterns": [
+    "rollup.config.js"
+  ]
 }
