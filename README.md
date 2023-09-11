@@ -26,8 +26,8 @@
 [build]: https://img.shields.io/github/actions/workflow/status/TrigenSoftware/Argue/ci.yml?branch=master
 [build-url]: https://github.com/TrigenSoftware/Argue/actions
 
-[coverage]: https://img.shields.io/codecov/c/github/TrigenSoftware/Argue.svg
-[coverage-url]: https://app.codecov.io/gh/TrigenSoftware/Argue
+[coverage]: https://img.shields.io/coverallsCoverage/github/TrigenSoftware/Argue.svg
+[coverage-url]: https://coveralls.io/github/TrigenSoftware/Argue
 
 A thin and strongly typed CLI arguments parser for Node.js.
 
