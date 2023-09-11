@@ -30,8 +30,8 @@ devDependencies:
     specifier: 8.0.0-alpha.23
     version: 8.0.0-alpha.23(eslint@8.28.0)(typescript@4.9.3)
   '@trigen/scripts':
-    specifier: 8.0.0-alpha.23
-    version: 8.0.0-alpha.23
+    specifier: 8.0.0-alpha.24
+    version: 8.0.0-alpha.24
   '@types/node':
     specifier: ^18.11.9
     version: 18.11.9
@@ -820,8 +820,8 @@ packages:
       - typescript
     dev: true
 
-  /@trigen/scripts@8.0.0-alpha.23:
-    resolution: {integrity: sha512-0rKaW0C1gPB7X/8VM+0RrMHcq4tw+neR6Uzox8GERJUVfrd56OMGloauu5UuaHmKl93tpVfxRQF7UPElmShiGA==}
+  /@trigen/scripts@8.0.0-alpha.24:
+    resolution: {integrity: sha512-MQQVG1EE69oqElu9FmVrmawowccGcBQTyOnOpDCdWaCV4xqLP/vGuBckcMhtyXR/TukZAq8h1H0MU/3/R/Dw0w==}
     engines: {node: '>=14'}
     hasBin: true
     dependencies:
@@ -1175,11 +1175,6 @@ packages:
 
   /argparse@2.0.1:
     resolution: {integrity: sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==}
-    dev: true
-
-  /argue-cli@2.0.0:
-    resolution: {integrity: sha512-t0Nn8sxf7dPtQRDZyyzrjnfPYw7/yYC46mVqGgy4oCa0wwWgB7wooqVLTUPZ1z5Kk1FUc8LZFTXhegU1oy1xXw==}
-    engines: {node: '>=14.0.0'}
     dev: true
 
   /argue-cli@2.1.0:
@@ -4903,7 +4898,7 @@ packages:
     dependencies:
       '@octokit/rest': 18.12.0
       '@types/git-url-parse': 9.0.1
-      argue-cli: 2.0.0
+      argue-cli: 2.1.0
       git-url-parse: 11.6.0
       lilconfig: 2.0.6
       new-github-release-url: 2.0.0
