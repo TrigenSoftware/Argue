@@ -25,8 +25,7 @@ jobs:
       - name: Run tests
         run: pnpm test
       - name: Collect coverage
+        uses: codecov/codecov-action@v3
         if: success()
-        uses: coverallsapp/github-action@main
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          fail-on-error: false
+          files: ./coverage/lcov.info
