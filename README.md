@@ -1,11 +1,15 @@
 # argue-cli
 
+[![ESM-only package][package]][package-url]
 [![NPM version][npm]][npm-url]
 [![Node version][node]][node-url]
 [![Dependencies status][deps]][deps-url]
+[![Install size][size]][size-url]
 [![Build status][build]][build-url]
 [![Coverage status][coverage]][coverage-url]
-[![Bundle size][size]][size-url]
+
+[package]: https://img.shields.io/badge/package-ESM--only-ffe536.svg
+[package-url]: https://nodejs.org/api/esm.html
 
 [npm]: https://img.shields.io/npm/v/argue-cli.svg
 [npm-url]: https://www.npmjs.com/package/argue-cli
@@ -16,14 +20,14 @@
 [deps]: https://img.shields.io/librariesio/release/npm/argue-cli
 [deps-url]: https://libraries.io/npm/argue-cli/tree
 
-[build]: https://img.shields.io/github/workflow/status/TrigenSoftware/Argue/CI.svg
+[size]: https://packagephobia.com/badge?p=argue-cli
+[size-url]: https://packagephobia.com/result?p=argue-cli
+
+[build]: https://img.shields.io/github/actions/workflow/status/TrigenSoftware/Argue/ci.yml?branch=master
 [build-url]: https://github.com/TrigenSoftware/Argue/actions
 
 [coverage]: https://img.shields.io/codecov/c/github/TrigenSoftware/Argue.svg
 [coverage-url]: https://app.codecov.io/gh/TrigenSoftware/Argue
-
-[size]: https://img.shields.io/bundlephobia/minzip/argue-cli
-[size-url]: https://bundlephobia.com/package/argue-cli
 
 A thin and strongly typed CLI arguments parser for Node.js.
 
