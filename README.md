@@ -36,10 +36,10 @@ A thin and strongly typed CLI arguments parser for Node.js.
 1. Install
 
 ```bash
-# yarn
-yarn add argue-cli
 # pnpm
 pnpm add argue-cli
+# yarn
+yarn add argue-cli
 # npm
 npm i argue-cli
 ```
