@@ -23,7 +23,7 @@
 [size]: https://packagephobia.com/badge?p=argue-cli
 [size-url]: https://packagephobia.com/result?p=argue-cli
 
-[build]: https://img.shields.io/github/actions/workflow/status/TrigenSoftware/Argue/ci.yml?branch=master
+[build]: https://img.shields.io/github/actions/workflow/status/TrigenSoftware/Argue/tests.yml?branch=master
 [build-url]: https://github.com/TrigenSoftware/Argue/actions
 
 [coverage]: https://img.shields.io/codecov/c/github/TrigenSoftware/Argue.svg
