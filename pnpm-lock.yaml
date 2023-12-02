@@ -27,8 +27,8 @@ devDependencies:
     specifier: 8.0.0-alpha.27
     version: 8.0.0-alpha.27
   '@trigen/eslint-config':
-    specifier: 8.0.0-alpha.28
-    version: 8.0.0-alpha.28(eslint@8.28.0)(typescript@5.2.2)
+    specifier: 8.0.0-alpha.29
+    version: 8.0.0-alpha.29(eslint@8.28.0)(typescript@5.2.2)
   '@trigen/scripts':
     specifier: 8.0.0-alpha.29
     version: 8.0.0-alpha.29
@@ -1376,8 +1376,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /@trigen/eslint-config@8.0.0-alpha.28(eslint@8.28.0)(typescript@5.2.2):
-    resolution: {integrity: sha512-vnjLSSHVICJfVZ/5gNzBBRsJMaPgJgYdbg6kmZepiCk/R1Hnpoa13R3DP+UI08b3FiU0EoBdfeY5ux7BO9fJ/A==}
+  /@trigen/eslint-config@8.0.0-alpha.29(eslint@8.28.0)(typescript@5.2.2):
+    resolution: {integrity: sha512-t9ZBeQOzj578xFa8esCEsR82x4jvyAvxFHMwXutweg/VAIaTkqqRtNOou7CVvA5NB2ATCzlrt93yRVs91YIqWg==}
     engines: {node: '>=10'}
     peerDependencies:
       '@testing-library/dom': '>=8.0.0'
@@ -3099,7 +3099,7 @@ packages:
     dependencies:
       acorn: 8.8.1
       acorn-jsx: 5.3.2(acorn@8.8.1)
-      eslint-visitor-keys: 3.3.0
+      eslint-visitor-keys: 3.4.3
     dev: true
 
   /esquery@1.4.0:
