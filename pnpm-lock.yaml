@@ -30,8 +30,8 @@ devDependencies:
     specifier: 8.0.0-alpha.29
     version: 8.0.0-alpha.29(eslint@8.28.0)(typescript@5.2.2)
   '@trigen/scripts':
-    specifier: 8.0.0-alpha.29
-    version: 8.0.0-alpha.29
+    specifier: 8.0.4
+    version: 8.0.4
   '@types/node':
     specifier: ^20.0.0
     version: 20.10.1
@@ -1224,6 +1224,18 @@ packages:
     dev: true
     optional: true
 
+  /@simple-libs/child-process-utils@1.0.2:
+    resolution: {integrity: sha512-/4R8QKnd/8agJynkNdJmNw2MBxuFTRcNFnE5Sg/G+jkSsV8/UBgULMzhizWWW42p8L5H7flImV2ATi79Ove2Tw==}
+    engines: {node: '>=18'}
+    dependencies:
+      '@simple-libs/stream-utils': 1.2.0
+    dev: true
+
+  /@simple-libs/stream-utils@1.2.0:
+    resolution: {integrity: sha512-KxXvfapcixpz6rVEB6HPjOUZT22yN6v0vI0urQSk1L8MlEWPDFCZkhw2xmkyoTGYeFw7tWTZd7e3lVzRZRN/EA==}
+    engines: {node: '>=18'}
+    dev: true
+
   /@sinclair/typebox@0.27.8:
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
     dev: true
@@ -1404,14 +1416,15 @@ packages:
       - typescript
     dev: true
 
-  /@trigen/scripts@8.0.0-alpha.29:
-    resolution: {integrity: sha512-XGWUK/Ql0jsD5TiIcYTT8RI8SUuHfh6AXcZnWLqaFLNra66uUJfTipDz/bcI0ZTSOIJbIEnUrB9xD8WDXrCTCg==}
-    engines: {node: '>=14'}
+  /@trigen/scripts@8.0.4:
+    resolution: {integrity: sha512-RU1jFuThG4luoufHOg3J8G7NfP8PfLEE4shlzirEgsADPHo7WH4iluD6Q0OaDtMLSDCF6VfqyzvGk5FIkqpsJw==}
+    engines: {node: '>=20'}
     hasBin: true
     dependencies:
+      '@simple-libs/child-process-utils': 1.0.2
+      '@simple-libs/stream-utils': 1.2.0
       argue-cli: 2.1.0
-      dotenv: 16.0.3
-      p-limit: 5.0.0
+      p-limit: 6.2.0
     dev: true
 
   /@tsd/typescript@5.2.2:
@@ -2661,11 +2674,6 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       is-obj: 2.0.0
-    dev: true
-
-  /dotenv@16.0.3:
-    resolution: {integrity: sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==}
-    engines: {node: '>=12'}
     dev: true
 
   /dotgitignore@2.1.0:
@@ -4642,11 +4650,11 @@ packages:
       yocto-queue: 1.0.0
     dev: true
 
-  /p-limit@5.0.0:
-    resolution: {integrity: sha512-/Eaoq+QyLSiXQ4lyYV23f14mZRQcXnxfHrN0vCai+ak9G0pp9iEQukIIZq5NccEvwRB8PUnZT0KsOoDCINS1qQ==}
+  /p-limit@6.2.0:
+    resolution: {integrity: sha512-kuUqqHNUqoIWp/c467RI4X6mmyuojY5jGutNU0wVTmEOOfcuwLqyMVoAi9MKi2Ak+5i9+nhmrK4ufZE8069kHA==}
     engines: {node: '>=18'}
     dependencies:
-      yocto-queue: 1.0.0
+      yocto-queue: 1.2.2
     dev: true
 
   /p-locate@2.0.0:
@@ -6096,6 +6104,11 @@ packages:
 
   /yocto-queue@1.0.0:
     resolution: {integrity: sha512-9bnSc/HEW2uRy67wc+T8UwauLuPJVn28jb+GtJY16iiKWyvmYJRXVT4UamsAEGQfPohgr2q4Tq0sQbQlxTfi1g==}
+    engines: {node: '>=12.20'}
+    dev: true
+
+  /yocto-queue@1.2.2:
+    resolution: {integrity: sha512-4LCcse/U2MHZ63HAJVE+v71o7yOdIe4cZ70Wpf8D/IyjDKYQLV5GD46B+hSTjJsvV5PztjvHoU580EftxjDZFQ==}
     engines: {node: '>=12.20'}
     dev: true
 
