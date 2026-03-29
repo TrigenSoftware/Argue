@@ -1,0 +1,7 @@
+autoInstallPeers: false
+publicHoistPattern:
+  - '*eslint-plugin*'
+onlyBuiltDependencies:
+  - '@swc/core'
+  - esbuild
+  - simple-git-hooks

@@ -18,7 +18,7 @@
 [node-url]: https://nodejs.org
 
 [deps]: https://img.shields.io/librariesio/release/npm/argue-cli
-[deps-url]: https://libraries.io/npm/argue-cli/tree
+[deps-url]: https://libraries.io/npm/argue-cli
 
 [size]: https://packagephobia.com/badge?p=argue-cli
 [size-url]: https://packagephobia.com/result?p=argue-cli

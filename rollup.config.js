@@ -2,7 +2,6 @@ import { swc } from 'rollup-plugin-swc3'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import nodeEsm from '@trigen/browserslist-config/node-esm'
 import node from '@trigen/browserslist-config/node'
-import pkg from './package.json' assert { type: 'json' }
 
 const extensions = ['.js', '.ts']
 const external = _ => /node_modules/.test(_) && !/@swc\/helpers/.test(_)
@@ -31,21 +30,21 @@ const plugins = targets => [
 
 export default [
   {
-    input: pkg.exports,
+    input: './src/index.ts',
     plugins: plugins(nodeEsm.join(', ')),
     external,
     output: {
-      file: pkg.publishConfig.exports.import,
+      file: './dist/index.js',
       format: 'es',
       sourcemap: true
     }
   },
   {
-    input: pkg.exports,
+    input: './src/index.ts',
     plugins: plugins(node.join(', ')),
     external,
     output: {
-      file: pkg.publishConfig.exports.require,
+      file: './dist/index.cjs',
       format: 'cjs',
       sourcemap: true
     }

@@ -17,6 +17,8 @@
     "declarationMap": true,
     "inlineSourceMap": true,
     "outDir": "dist",
+    /* JavaScript */
+    "allowJs": true,
     /* Interop Constraints */
     "allowSyntheticDefaultImports": true,
     "isolatedModules": true,
@@ -28,11 +30,5 @@
     "target": "ESNext",
     /* Completeness */
     "skipLibCheck": true
-  },
-  "include": [
-    "src"
-  ],
-  "exclude": [
-    "**/*.spec.ts"
-  ]
+  }
 }
