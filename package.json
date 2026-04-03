@@ -71,7 +71,7 @@
     "clean-publish": "^4.0.1",
     "commitizen": "^4.2.5",
     "del-cli": "^5.0.0",
-    "eslint": "9.31.0",
+    "eslint": "10.2.0",
     "nano-staged": "^0.8.0",
     "rollup": "^4.0.0",
     "rollup-plugin-swc3": "^0.10.0",
