@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/TrigenSoftware/Argue/compare/v2.1.0...v3.0.0) (2026-07-09)
+
+### ⚠ BREAKING CHANGES
+
+* CommonJS bundle is not published anymore.
+* Node.js 24 or higher is required.
+
+### Features
+
+* publish esm-only package ([61538e6](https://github.com/TrigenSoftware/Argue/commit/61538e6e71a38e1625d0f0d13d93685c16ae695a))
+* require Node.js 24 ([5480810](https://github.com/TrigenSoftware/Argue/commit/54808102eec778685ff7d012c1e07fd0bb8bc710))
+
 ## [2.1.0](https://github.com/TrigenSoftware/Argue/compare/v2.0.0...v2.1.0) (2022-10-14)
 
 
