@@ -22,8 +22,6 @@ jobs:
           cache: 'pnpm'
       - name: Install dependencies
         run: pnpm install
-      - name: Prebuild
-        run: pnpm build
       - name: Check types
         run: pnpm test:types
   unit:

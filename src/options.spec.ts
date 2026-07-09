@@ -60,7 +60,7 @@ describe('options', () => {
 
       expect(
         () => readOptions(option('input', String))
-      ).toThrowError()
+      ).toThrow()
     })
   })
 })

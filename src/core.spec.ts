@@ -17,7 +17,7 @@ describe('core', () => {
     })
 
     it('should throw error when unexpected end', () => {
-      expect(() => core.read()).toThrowError()
+      expect(() => core.read()).toThrow()
     })
   })
 
@@ -29,7 +29,7 @@ describe('core', () => {
 
     it('should throw error when unexpected arg', () => {
       setArgs('--oops')
-      expect(() => core.end()).toThrowError()
+      expect(() => core.end()).toThrow()
     })
   })
 
@@ -44,7 +44,7 @@ describe('core', () => {
 
     it('should throw error when unexpected arg', () => {
       setArgs('remove')
-      expect(() => core.expect('install')).toThrowError()
+      expect(() => core.expect('install')).toThrow()
     })
   })
 })

@@ -1,9 +1,5 @@
 [
   {
-    "path": "dist/index.cjs",
-    "limit": "780 B"
-  },
-  {
     "path": "dist/index.js",
     "limit": "620 B"
   }
