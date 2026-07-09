@@ -195,6 +195,22 @@ Describes an option with a value of the given type, to be read by [`readOptions`
 - `Boolean` — a flag without a value, `true` when present: `--verbose`
 - `Array` — splits the next argument by commas; repeated options are merged: `--plugins eslint,swc --plugins tsc` → `['eslint', 'swc', 'tsc']`
 
+### flag
+
+```ts
+function flag(argRef: ArgRef): OptionReader
+```
+
+Describes a boolean flag with `--no-*` negation support, to be read by [`readOptions`](#readoptions): `--verbose` sets `true`, `--no-verbose` sets `false`. Use `option(argRef, Boolean)` when negation is not wanted.
+
+```ts
+const options = readOptions(
+  flag(autocase('firstRelease'))
+)
+// --first-release → { firstRelease: true }
+// --no-first-release, --no-firstRelease → { firstRelease: false }
+```
+
 ### readOptions
 
 ```ts

@@ -6,6 +6,7 @@ import {
 import {
   alias,
   autocase,
+  flag,
   option
 } from './args.js'
 
@@ -102,6 +103,44 @@ describe('args', () => {
         verbose: true
       })
       expect(reader('test', () => '123', {})).toBeNull()
+    })
+  })
+
+  describe('flag', () => {
+    it('should return working boolean reader', () => {
+      const reader = flag('append')
+
+      expect(reader('append')).toEqual({
+        append: true
+      })
+      expect(reader('test')).toBeNull()
+    })
+
+    it('should read negated form as false', () => {
+      const reader = flag('append')
+
+      expect(reader('no-append')).toEqual({
+        append: false
+      })
+    })
+
+    it('should negate aliases too', () => {
+      const reader = flag(autocase('firstRelease'))
+
+      expect(reader('no-firstRelease')).toEqual({
+        firstRelease: false
+      })
+      expect(reader('no-first-release')).toEqual({
+        firstRelease: false
+      })
+    })
+
+    it('should prefer direct match over negation', () => {
+      const reader = flag('no-cache')
+
+      expect(reader('no-cache')).toEqual({
+        'no-cache': true
+      })
     })
   })
 })

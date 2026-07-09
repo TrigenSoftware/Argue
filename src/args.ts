@@ -127,3 +127,30 @@ export function option<T extends string, K extends PrimitiveConstructor>(argRef:
     return null
   }
 }
+
+const NEGATION_PREFIX = 'no-'
+
+/**
+ * Describe boolean flag with `--no-*` negation support.
+ * @param argRef - Flag name.
+ * @returns Option reader.
+ */
+export function flag<T extends string>(argRef: ArgRef<T>) {
+  return (option: string) => {
+    let value = true
+    let argName = matchArgName(argRef, option)
+
+    if (!argName && option.startsWith(NEGATION_PREFIX)) {
+      value = false
+      argName = matchArgName(argRef, option.slice(NEGATION_PREFIX.length))
+    }
+
+    if (argName) {
+      return {
+        [argName]: value
+      } as OptionResult<T, BooleanConstructor>
+    }
+
+    return null
+  }
+}
