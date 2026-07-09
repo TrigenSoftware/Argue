@@ -217,7 +217,7 @@ const options = readOptions(
 function readOptions(...optionReaders: OptionReader[]): OptionResult
 ```
 
-Scans the arguments and reads all described options. Both `--option` and `-o` prefixes are accepted. Arguments that don't match any described option are left untouched, so you can continue reading them afterwards.
+Scans the arguments and reads all described options. Both `--option` and `-o` prefixes are accepted, and a value can be passed either as the next argument or inline: `--workspace packages/app` and `--workspace=packages/app` are equivalent. Arguments that don't match any described option are left untouched, so you can continue reading them afterwards.
 
 The result is a strongly typed object, where every property is optional — an option simply may not be passed:
 

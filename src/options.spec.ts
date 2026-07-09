@@ -62,5 +62,59 @@ describe('options', () => {
         () => readOptions(option('input', String))
       ).toThrow()
     })
+
+    it('should read inline values', () => {
+      setArgs('--input=test.ts', '--threads=2', '--plugins=a,b', '--plugins=c')
+
+      expect(
+        readOptions(
+          option('input', String),
+          option('threads', Number),
+          option('plugins', Array)
+        )
+      ).toEqual({
+        input: 'test.ts',
+        threads: 2,
+        plugins: [
+          'a',
+          'b',
+          'c'
+        ]
+      })
+      expect(argv).toEqual([])
+    })
+
+    it('should split inline value at first equals sign', () => {
+      setArgs('--define=FOO=bar')
+
+      expect(readOptions(option('define', String))).toEqual({
+        define: 'FOO=bar'
+      })
+    })
+
+    it('should read empty inline value', () => {
+      setArgs('--input=')
+
+      expect(readOptions(option('input', String))).toEqual({
+        input: ''
+      })
+    })
+
+    it('should throw error on inline value for boolean option', () => {
+      setArgs('--verbose=true')
+
+      expect(
+        () => readOptions(option('verbose', Boolean))
+      ).toThrow('Unexpected value for "--verbose"')
+    })
+
+    it('should keep unknown option with inline value untouched', () => {
+      setArgs('--unknown=value', '--verbose')
+
+      expect(readOptions(option('verbose', Boolean))).toEqual({
+        verbose: true
+      })
+      expect(argv).toEqual(['--unknown=value'])
+    })
   })
 })

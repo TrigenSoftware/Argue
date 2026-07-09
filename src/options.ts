@@ -17,6 +17,14 @@ function removePrefix(arg: string) {
   return arg.replace(/^--?/, '')
 }
 
+function splitOption(arg: string): [name: string, value?: string] {
+  const eqIndex = arg.indexOf('=')
+
+  return eqIndex === -1
+    ? [arg]
+    : [arg.slice(0, eqIndex), arg.slice(eqIndex + 1)]
+}
+
 function createOptionReader<T extends OptionReader[]>(optionReaders: [...T]) {
   const optionReader = optionReaders.reduceRight<OptionReader | null>(
     (readNextOption, readOption) => {
@@ -52,13 +60,26 @@ export function readOptions<T extends OptionReader[]>(...optionReaders: [...T]):
   let i = 0
   let arg = argv[i]
   let optionResult: OptionResult | null
+  let optionEqValue: string | undefined
   const next = () => {
     arg = argv[++i]
   }
   const remove = () => {
+    if (optionEqValue !== undefined) {
+      throw new Error(`Unexpected value for "${arg}"`)
+    }
+
     argv.splice(i--, 1)
   }
   const read = () => {
+    if (optionEqValue !== undefined) {
+      const value = optionEqValue
+
+      optionEqValue = undefined
+
+      return value
+    }
+
     next()
     remove()
 
@@ -72,6 +93,7 @@ export function readOptions<T extends OptionReader[]>(...optionReaders: [...T]):
   // oxlint-disable-next-line eslint/no-unmodified-loop-condition
   while (arg) {
     if (isOption(arg)) {
+      [arg, optionEqValue] = splitOption(arg)
       optionResult = readOption(removePrefix(arg), read, options)
 
       if (optionResult) {
