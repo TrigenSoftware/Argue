@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.0](https://github.com/TrigenSoftware/Argue/compare/v3.0.0...v3.1.0) (2026-07-09)
+
+### Features
+
+* add `autocase` to match both camelCase and kebab-case forms ([bf35f39](https://github.com/TrigenSoftware/Argue/commit/bf35f3925d81720e49626a0afbadef8837a8c616))
+* add `flag` to describe boolean options with `--no-*` negation support ([23539a2](https://github.com/TrigenSoftware/Argue/commit/23539a2d6b8694122b95fa7dc2476a2f8b0858e7))
+* add `rest` function to read all remaining arguments ([fa8d414](https://github.com/TrigenSoftware/Argue/commit/fa8d41449884fc6bb8067d141fa96253bfa17a94))
+* support inline option values with `=` ([f25bcd5](https://github.com/TrigenSoftware/Argue/commit/f25bcd5dbb494b16c609cc776fe1645c67539ef2))
+* support Node.js 22 ([dc18dd3](https://github.com/TrigenSoftware/Argue/commit/dc18dd3b50d30b6bff75a79d3fbf1d4083443753))
+
 ## [3.0.0](https://github.com/TrigenSoftware/Argue/compare/v2.1.0...v3.0.0) (2026-07-09)
 
 ### ⚠ BREAKING CHANGES
