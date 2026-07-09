@@ -1,0 +1,6 @@
+{
+  "project": "@simple-release/pnpm#PnpmProject",
+  "releaser": {
+    "verbose": true
+  }
+}
