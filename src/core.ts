@@ -18,6 +18,14 @@ export function read() {
 }
 
 /**
+ * Read all remaining arguments.
+ * @returns Remaining arguments, empty array if none.
+ */
+export function rest() {
+  return argv.splice(0, argv.length)
+}
+
+/**
  * Expectation of the end.
  * Throws an error if there are more arguments left.
  */

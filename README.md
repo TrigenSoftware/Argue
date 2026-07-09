@@ -102,6 +102,23 @@ Reads the next argument and returns it. Throws an error if there are no argument
 const fileName = read() // 'sort-imports'
 ```
 
+### rest
+
+```ts
+function rest(): string[]
+```
+
+Reads all remaining arguments and returns them. Returns an empty array if there are none — unlike [`read`](#read), it never throws.
+
+```ts
+// my-cli format a.js b.js c.js
+expect('format')
+
+const files = rest() // ['a.js', 'b.js', 'c.js']
+
+end() // always passes after rest()
+```
+
 ### end
 
 ```ts

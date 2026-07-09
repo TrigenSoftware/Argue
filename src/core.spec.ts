@@ -21,6 +21,27 @@ describe('core', () => {
     })
   })
 
+  describe('rest', () => {
+    it('should read all remaining args', () => {
+      setArgs('a.js', 'b.js', 'c.js')
+
+      expect(core.rest()).toEqual(['a.js', 'b.js', 'c.js'])
+    })
+
+    it('should consume args, so end passes', () => {
+      setArgs('a.js', 'b.js')
+
+      core.rest()
+      core.end()
+    })
+
+    it('should return empty array when no args left', () => {
+      setArgs()
+
+      expect(core.rest()).toEqual([])
+    })
+  })
+
   describe('end', () => {
     it('should do check args end', () => {
       setArgs()
