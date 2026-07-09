@@ -1,12 +1,43 @@
 {
-  "extends": "./tsconfig.json",
   "compilerOptions": {
-    "allowJs": false
+    /* Type Checking */
+    "strict": true,
+    "strictBindCallApply": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    /* Modules */
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "allowImportingTsExtensions": true,
+    "rewriteRelativeImportExtensions": true,
+    "resolveJsonModule": true,
+    /* Emit */
+    "declaration": true,
+    "declarationMap": true,
+    "inlineSourceMap": true,
+    "outDir": "dist",
+    "rootDir": "src",
+    /* Interop Constraints */
+    "allowSyntheticDefaultImports": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    /* Language and Environment */
+    "lib": [
+      "esnext"
+    ],
+    "target": "ESNext",
+    /* Completeness */
+    "skipLibCheck": true
   },
   "include": [
     "src"
   ],
   "exclude": [
-    "**/*.spec.ts"
+    "**/*.config.ts",
+    "**/*.spec.ts",
+    "**/*.mock.ts"
   ]
 }

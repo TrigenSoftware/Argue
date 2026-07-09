@@ -1,5 +1,12 @@
-import { describe, it, expect } from 'vitest'
-import { setArgs, argv } from './argv.js'
+import {
+  describe,
+  it,
+  expect
+} from 'vitest'
+import {
+  setArgs,
+  argv
+} from './argv.js'
 import { option } from './args.js'
 import { readOptions } from './options.js'
 

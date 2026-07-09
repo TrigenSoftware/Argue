@@ -1,4 +1,8 @@
-import { describe, it, expect } from 'vitest'
+import {
+  describe,
+  it,
+  expect
+} from 'vitest'
 import { setArgs } from './argv.js'
 import * as core from './core.js'
 import { alias } from './args.js'

@@ -1,6 +1,4 @@
 autoInstallPeers: false
-publicHoistPattern:
-  - '*eslint-plugin*'
 allowBuilds:
   '@swc/core': true
   esbuild: true
