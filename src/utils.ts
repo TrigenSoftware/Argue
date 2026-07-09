@@ -9,10 +9,10 @@ export type Merge<T extends readonly [...unknown[]]> = T extends [infer L, ...in
 
 export type UnionMerge<T extends readonly [...unknown[]]> = T extends [infer L, ...infer R]
   ? L | Merge<R>
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // oxlint-disable-next-line typescript/no-explicit-any
   : any
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+// oxlint-disable-next-line typescript/no-explicit-any
 type AnyFunction = (...args: any[]) => any
 
 export type ReturnTypes<T extends readonly [...AnyFunction[]]> = T extends [infer L, ...infer R]

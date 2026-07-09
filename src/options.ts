@@ -69,7 +69,7 @@ export function readOptions<T extends OptionReader[]>(...optionReaders: [...T]):
     return arg
   }
 
-  // eslint-disable-next-line no-unmodified-loop-condition
+  // oxlint-disable-next-line eslint/no-unmodified-loop-condition
   while (arg) {
     if (isOption(arg)) {
       optionResult = readOption(removePrefix(arg), read, options)
