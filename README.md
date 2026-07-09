@@ -84,89 +84,106 @@ end()
 
 ## API
 
-<table>
-  <thead>
-    <tr>
-      <th>Method</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-<td>
+Argue reads arguments sequentially from an internal state, which is initialized with `process.argv`. Every call consumes the arguments it reads, so you describe your CLI step by step: expect a command, read its options, read positional arguments, and finally assert the end.
+
+> [!TIP]
+> The internal state can be controlled manually with `setArgs(...args)` and `resetArgs()` — handy in tests.
+
+### read
 
 ```ts
 function read(): string
 ```
 
-</td>
-<td>
-  Read next argument. Throws error if no next argument.
-</td>
-    </tr>
-    <tr>
-<td>
+Reads the next argument and returns it. Throws an error if there are no arguments left.
+
+```ts
+// my-cli sort-imports
+const fileName = read() // 'sort-imports'
+```
+
+### end
 
 ```ts
 function end(): void
 ```
 
-</td>
-<td>
-  Expectation of the end. Throws an error if there are more arguments left.
-</td>
-    </tr>
-    <tr>
-<td>
+Asserts that all arguments were consumed. Throws an error if there are any arguments left — useful to catch typos and unexpected input.
+
+```ts
+// my-cli install --sav
+expect('install')
+readOptions(
+  option(alias('save', 'S'), Boolean)
+)
+end() // throws: Unexpected argument "--sav"
+```
+
+### expect
 
 ```ts
 function expect(...argRefs: ArgRef[]): string
 ```
 
-</td>
-<td>
-  Expect one of the given arguments.
-</td>
-    </tr>
-    <tr>
-<td>
+Expects the next argument to be one of the given ones and returns the matched name. If an [alias](#alias) matches, the main name is returned. Throws an error on any other input.
+
+The return type is inferred as a union of the given names:
+
+```ts
+// my-cli i
+const command = expect(alias('install', 'i'), 'remove')
+// typeof command: 'install' | 'remove'
+// command === 'install'
+```
+
+### alias
 
 ```ts
 function alias(name: string, ...aliases: string[]): AliasArgRef
 ```
 
-</td>
-<td>
-  Describe argument with aliases.
-</td>
-    </tr>
-    <tr>
-<td>
+Describes an argument that has alternative names. Use it anywhere an argument name is expected — in [`expect`](#expect) and [`option`](#option).
+
+```ts
+alias('install', 'i')
+alias('saveDev', 'save-dev', 'D')
+```
+
+### option
 
 ```ts
 function option(argRef: ArgRef, type: PrimitiveConstructor): OptionReader
 ```
 
-</td>
-<td>
-  Describe option with value.
-</td>
-    </tr>
-    <tr>
-<td>
+Describes an option with a value of the given type, to be read by [`readOptions`](#readoptions):
+
+- `String` — takes the next argument as a value: `--workspace packages/app`
+- `Number` — parses the next argument as a number: `--port 8080`
+- `Boolean` — a flag without a value, `true` when present: `--verbose`
+- `Array` — splits the next argument by commas; repeated options are merged: `--plugins eslint,swc --plugins tsc` → `['eslint', 'swc', 'tsc']`
+
+### readOptions
 
 ```ts
 function readOptions(...optionReaders: OptionReader[]): OptionResult
 ```
 
-</td>
-<td>
-  Read options from arguments.
-</td>
-    </tr>
-  </tbody>
-</table>
+Scans the arguments and reads all described options. Both `--option` and `-o` prefixes are accepted. Arguments that don't match any described option are left untouched, so you can continue reading them afterwards.
+
+The result is a strongly typed object, where every property is optional — an option simply may not be passed:
+
+```ts
+// my-cli --save-dev --workspace packages/app my-package
+const options = readOptions(
+  option(alias('saveDev', 'save-dev', 'D'), Boolean),
+  option('workspace', String)
+)
+// typeof options: { saveDev?: boolean, workspace?: string }
+// options: { saveDev: true, workspace: 'packages/app' }
+
+const packageName = read() // 'my-package'
+```
 
 ## TypeScript
 
-In [API section](#API) types are described in a simplified way. Detailed example of the types you can see [here](test/argue.test-d.ts).
+In the [API section](#api) types are described in a simplified way. A detailed example of the inferred types you can see in [type tests](src/types.spec.ts).
