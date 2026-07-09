@@ -5,10 +5,60 @@ import {
 } from 'vitest'
 import {
   alias,
+  autocase,
   option
 } from './args.js'
 
 describe('args', () => {
+  describe('autocase', () => {
+    it('should add kebab-case twin for camelCase name', () => {
+      expect(autocase('firstRelease')).toEqual({
+        name: 'firstRelease',
+        aliases: ['first-release']
+      })
+    })
+
+    it('should add camelCase twin for kebab-case name', () => {
+      expect(autocase('first-release')).toEqual({
+        name: 'first-release',
+        aliases: ['firstRelease']
+      })
+    })
+
+    it('should autocase aliases longer than one character', () => {
+      expect(autocase(alias('saveDev', 'save-dev-deps', 'D'))).toEqual({
+        name: 'saveDev',
+        aliases: ['save-dev-deps', 'D', 'saveDevDeps', 'save-dev']
+      })
+    })
+
+    it('should not duplicate existing aliases', () => {
+      expect(autocase(alias('saveDev', 'save-dev'))).toEqual({
+        name: 'saveDev',
+        aliases: ['save-dev']
+      })
+    })
+
+    it('should return single-word name as is', () => {
+      expect(autocase('verbose')).toBe('verbose')
+      expect(autocase(alias('verbose', 'v'))).toEqual({
+        name: 'verbose',
+        aliases: ['v']
+      })
+    })
+
+    it('should work with option reader', () => {
+      const reader = option(autocase('firstRelease'), Boolean)
+
+      expect(reader('first-release', () => '', {})).toEqual({
+        firstRelease: true
+      })
+      expect(reader('firstRelease', () => '', {})).toEqual({
+        firstRelease: true
+      })
+    })
+  })
+
   describe('option', () => {
     it('should return working string reader', () => {
       const reader = option('otp', String)

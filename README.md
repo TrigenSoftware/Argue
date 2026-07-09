@@ -166,6 +166,22 @@ alias('install', 'i')
 alias('saveDev', 'save-dev', 'D')
 ```
 
+### autocase
+
+```ts
+function autocase(argRef: ArgRef): ArgRef
+```
+
+Describes an argument that matches both camelCase and kebab-case forms. The name can be given in either form — the twin form is added as an alias. Aliases longer than one character are autocased too. Use it anywhere an argument name is expected.
+
+```ts
+autocase('firstRelease')
+// --firstRelease and --first-release are both accepted
+
+autocase(alias('save-dev', 'D'))
+// --save-dev, --saveDev and -D
+```
+
 ### option
 
 ```ts
