@@ -62,7 +62,7 @@
     "@trigen/scripts": "^9.0.0",
     "@types/node": "^24.0.0",
     "@vitest/coverage-v8": "^4.1.10",
-    "clean-publish": "^5.2.2",
+    "clean-publish": "^7.0.0",
     "commitizen": "^4.3.2",
     "del-cli": "^7.0.0",
     "nano-staged": "^1.0.2",
