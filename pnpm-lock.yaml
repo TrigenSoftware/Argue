@@ -16,13 +16,13 @@ importers:
         version: 21.2.0
       '@commitlint/cz-commitlint':
         specifier: ^21.2.0
-        version: 21.2.0(@types/node@24.13.3)(commitizen@4.3.2(@types/node@24.13.3)(typescript@7.0.2))(inquirer@8.2.7(@types/node@24.13.3))(typescript@7.0.2)
+        version: 21.2.0(@types/node@24.13.3)(commitizen@4.3.2(@types/node@24.13.3)(typescript@7.0.2))(typescript@7.0.2)
       '@size-limit/preset-small-lib':
         specifier: ^12.1.0
         version: 12.1.0(size-limit@12.1.0(jiti@2.6.1))
       '@trigen/oxlint':
-        specifier: ^9.1.0
-        version: 9.1.0
+        specifier: ^10.0.0
+        version: 10.1.1
       '@trigen/oxlint-config':
         specifier: ^9.3.0
         version: 9.3.0(oxlint-tsgolint@0.24.0)(oxlint@1.73.0(oxlint-tsgolint@0.24.0))
@@ -726,8 +726,8 @@ packages:
       oxlint-tsgolint:
         optional: true
 
-  '@trigen/oxlint@9.1.0':
-    resolution: {integrity: sha512-oatwPW3/TiswgA03jE8bweFU3Z8c0zswuvjLMJOWM/xWD6cD7xMiHUJf06lkq1JfpSRdz+jTjaX6qSVbD2ICKw==}
+  '@trigen/oxlint@10.1.1':
+    resolution: {integrity: sha512-nEhnu68eJsfSw89FFRd2bP1LJuJpUuAXhT9srcTbq/hopQcOCZPc3cUEDspQeWaVpPm7ChO5Jb2fr2UeHHXMUA==}
     engines: {node: '>=22'}
 
   '@trigen/scripts@9.0.0':
@@ -2086,13 +2086,12 @@ snapshots:
       '@commitlint/types': 21.2.0
       ajv: 8.18.0
 
-  '@commitlint/cz-commitlint@21.2.0(@types/node@24.13.3)(commitizen@4.3.2(@types/node@24.13.3)(typescript@7.0.2))(inquirer@8.2.7(@types/node@24.13.3))(typescript@7.0.2)':
+  '@commitlint/cz-commitlint@21.2.0(@types/node@24.13.3)(commitizen@4.3.2(@types/node@24.13.3)(typescript@7.0.2))(typescript@7.0.2)':
     dependencies:
       '@commitlint/ensure': 21.2.0
       '@commitlint/load': 21.2.0(@types/node@24.13.3)(typescript@7.0.2)
       '@commitlint/types': 21.2.0
       commitizen: 4.3.2(@types/node@24.13.3)(typescript@7.0.2)
-      inquirer: 8.2.7(@types/node@24.13.3)
       is-plain-obj: 4.1.0
       picocolors: 1.1.1
       word-wrap: 1.2.5
@@ -2539,7 +2538,7 @@ snapshots:
     transitivePeerDependencies:
       - eslint
 
-  '@trigen/oxlint@9.1.0': {}
+  '@trigen/oxlint@10.1.1': {}
 
   '@trigen/scripts@9.0.0':
     dependencies:
