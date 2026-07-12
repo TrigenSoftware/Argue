@@ -59,7 +59,7 @@
     "@size-limit/preset-small-lib": "^12.1.0",
     "@trigen/oxlint": "^9.1.0",
     "@trigen/oxlint-config": "^9.3.0",
-    "@trigen/scripts": "^9.0.0",
+    "@trigen/scripts": "^10.0.0",
     "@types/node": "^24.0.0",
     "@vitest/coverage-v8": "^4.1.10",
     "clean-publish": "^5.2.2",
