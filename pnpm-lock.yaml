@@ -16,7 +16,7 @@ importers:
         version: 21.2.0
       '@commitlint/cz-commitlint':
         specifier: ^21.2.0
-        version: 21.2.0(@types/node@24.13.3)(commitizen@4.3.2(@types/node@24.13.3)(typescript@7.0.2))(inquirer@8.2.7(@types/node@24.13.3))(typescript@7.0.2)
+        version: 21.2.0(@types/node@24.13.3)(commitizen@4.3.2(@types/node@24.13.3)(typescript@7.0.2))(typescript@7.0.2)
       '@size-limit/preset-small-lib':
         specifier: ^12.1.0
         version: 12.1.0(size-limit@12.1.0(jiti@2.6.1))
@@ -24,8 +24,8 @@ importers:
         specifier: ^9.1.0
         version: 9.1.0
       '@trigen/oxlint-config':
-        specifier: ^9.3.0
-        version: 9.3.0(oxlint-tsgolint@0.24.0)(oxlint@1.73.0(oxlint-tsgolint@0.24.0))
+        specifier: ^10.0.0
+        version: 10.1.2(oxlint-tsgolint@0.24.0)(oxlint@1.73.0(oxlint-tsgolint@0.24.0))
       '@trigen/scripts':
         specifier: ^9.0.0
         version: 9.0.0
@@ -716,8 +716,8 @@ packages:
     peerDependencies:
       eslint: ^9.0.0 || ^10.0.0
 
-  '@trigen/oxlint-config@9.3.0':
-    resolution: {integrity: sha512-ZYtSQvPOKC2/e6i9QJTtnAKiGwYa5mVz5NjfEV2qPvdW5ZDNV+vnL94XVyiR3OIM6cEkAE4wAFSlqhvX8XVw3Q==}
+  '@trigen/oxlint-config@10.1.2':
+    resolution: {integrity: sha512-v5RsINtl8dYo7VJnfL0FiP13ITtWuY66Po89WX8N3+u1LkBGc9l5i64ZJUnfYP59zY3l3067cPJ7s+Feas7UzA==}
     engines: {node: '>=22'}
     peerDependencies:
       oxlint: '>=1.0.0'
@@ -2086,13 +2086,12 @@ snapshots:
       '@commitlint/types': 21.2.0
       ajv: 8.18.0
 
-  '@commitlint/cz-commitlint@21.2.0(@types/node@24.13.3)(commitizen@4.3.2(@types/node@24.13.3)(typescript@7.0.2))(inquirer@8.2.7(@types/node@24.13.3))(typescript@7.0.2)':
+  '@commitlint/cz-commitlint@21.2.0(@types/node@24.13.3)(commitizen@4.3.2(@types/node@24.13.3)(typescript@7.0.2))(typescript@7.0.2)':
     dependencies:
       '@commitlint/ensure': 21.2.0
       '@commitlint/load': 21.2.0(@types/node@24.13.3)(typescript@7.0.2)
       '@commitlint/types': 21.2.0
       commitizen: 4.3.2(@types/node@24.13.3)(typescript@7.0.2)
-      inquirer: 8.2.7(@types/node@24.13.3)
       is-plain-obj: 4.1.0
       picocolors: 1.1.1
       word-wrap: 1.2.5
@@ -2530,7 +2529,7 @@ snapshots:
       estraverse: 5.3.0
       picomatch: 4.0.4
 
-  '@trigen/oxlint-config@9.3.0(oxlint-tsgolint@0.24.0)(oxlint@1.73.0(oxlint-tsgolint@0.24.0))':
+  '@trigen/oxlint-config@10.1.2(oxlint-tsgolint@0.24.0)(oxlint@1.73.0(oxlint-tsgolint@0.24.0))':
     dependencies:
       '@stylistic/eslint-plugin': 5.10.0
       oxlint: 1.73.0(oxlint-tsgolint@0.24.0)
