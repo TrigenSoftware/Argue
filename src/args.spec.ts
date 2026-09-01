@@ -96,6 +96,30 @@ describe('args', () => {
       expect(reader('test', () => '123', {})).toBeNull()
     })
 
+    it('should return working list reader', () => {
+      const reader = option('match', [String])
+
+      expect(reader('match', () => '**/*.{jpg,png}', {})).toEqual({
+        match: ['**/*.{jpg,png}']
+      })
+      expect(reader('match', () => 'b', {
+        match: ['a']
+      })).toEqual({
+        match: ['a', 'b']
+      })
+      expect(reader('test', () => '123', {})).toBeNull()
+    })
+
+    it('should return working number list reader', () => {
+      const reader = option(alias('width', 'w'), [Number])
+
+      expect(reader('w', () => '640', {
+        width: [1280]
+      })).toEqual({
+        width: [1280, 640]
+      })
+    })
+
     it('should return working boolean reader', () => {
       const reader = option(alias('verbose', 'v'), Boolean)
 
