@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.2.0](https://github.com/TrigenSoftware/Argue/compare/v3.1.0...v3.2.0) (2026-09-01)
+
+### Features
+
+* add `[String]` and `[Number]` option types to collect repeated options ([#396](https://github.com/TrigenSoftware/Argue/issues/396)) ([23d6fb9](https://github.com/TrigenSoftware/Argue/commit/23d6fb9330c6e71df42351c48376fbb77947738c))
+
 ## [3.1.0](https://github.com/TrigenSoftware/Argue/compare/v3.0.0...v3.1.0) (2026-07-09)
 
 ### Features
