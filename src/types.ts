@@ -18,16 +18,24 @@ export type OptionsReaderRead = () => string
 
 export type PrimitiveConstructor = StringConstructor | NumberConstructor | ArrayConstructor | BooleanConstructor
 
-export type OptionValueType<T extends PrimitiveConstructor> =
-  T extends StringConstructor
-    ? string
-    : T extends NumberConstructor
-      ? number
-      : T extends ArrayConstructor
-        ? string[]
-        : boolean
+export type ListConstructor = [StringConstructor] | [NumberConstructor]
 
-export type OptionResult<T extends string = string, K extends PrimitiveConstructor = PrimitiveConstructor> = Record<T, OptionValueType<K>>
+export type OptionConstructor = PrimitiveConstructor | ListConstructor
+
+export type OptionValueType<T extends OptionConstructor> =
+  T extends [StringConstructor]
+    ? string[]
+    : T extends [NumberConstructor]
+      ? number[]
+      : T extends StringConstructor
+        ? string
+        : T extends NumberConstructor
+          ? number
+          : T extends ArrayConstructor
+            ? string[]
+            : boolean
+
+export type OptionResult<T extends string = string, K extends OptionConstructor = OptionConstructor> = Record<T, OptionValueType<K>>
 
 export type OptionReader<T extends OptionResult = OptionResult> =
   (

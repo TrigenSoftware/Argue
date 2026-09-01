@@ -185,7 +185,7 @@ autocase(alias('save-dev', 'D'))
 ### option
 
 ```ts
-function option(argRef: ArgRef, type: PrimitiveConstructor): OptionReader
+function option(argRef: ArgRef, type: OptionConstructor): OptionReader
 ```
 
 Describes an option with a value of the given type, to be read by [`readOptions`](#readoptions):
@@ -194,6 +194,7 @@ Describes an option with a value of the given type, to be read by [`readOptions`
 - `Number` — parses the next argument as a number: `--port 8080`
 - `Boolean` — a flag without a value, `true` when present: `--verbose`
 - `Array` — splits the next argument by commas; repeated options are merged: `--plugins eslint,swc --plugins tsc` → `['eslint', 'swc', 'tsc']`
+- `[String]` or `[Number]` — takes the next argument as a whole; repeated options are collected: `--match '*.{js,ts}' --match '*.css'` → `['*.{js,ts}', '*.css']`. Use it instead of `Array` for values that may contain commas of their own
 
 ### flag
 

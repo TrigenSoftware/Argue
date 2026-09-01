@@ -1,7 +1,7 @@
 import type {
   AliasArgRef,
   ArgRef,
-  PrimitiveConstructor,
+  OptionConstructor,
   OptionsReaderState,
   OptionsReaderRead,
   OptionResult
@@ -67,7 +67,26 @@ export function autocase<T extends string>(argRef: ArgRef<T>): ArgRef<T> {
  * @param type - Value type.
  * @returns Option reader.
  */
-export function option<T extends string, K extends PrimitiveConstructor>(argRef: ArgRef<T>, type: K) {
+export function option<T extends string, K extends OptionConstructor>(argRef: ArgRef<T>, type: K) {
+  if (Array.isArray(type)) {
+    return (option: string, read: OptionsReaderRead, options: OptionsReaderState) => {
+      const argName = matchArgName(argRef, option)
+
+      if (argName) {
+        const prevValues = options[argName]
+        const value = read()
+
+        return {
+          [argName]: (Array.isArray(prevValues) ? prevValues : []).concat(
+            type[0] === Number ? parseFloat(value) : value
+          )
+        } as OptionResult<T, K>
+      }
+
+      return null
+    }
+  }
+
   if (type === String) {
     return (option: string, read: OptionsReaderRead) => {
       const argName = matchArgName(argRef, option)
