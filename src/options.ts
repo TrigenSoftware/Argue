@@ -83,7 +83,7 @@ export function readOptions<T extends OptionReader[]>(...optionReaders: [...T]):
     next()
     remove()
 
-    if (!arg) {
+    if (arg === undefined) {
       throw new Error('Unexpected end of arguments')
     }
 
@@ -91,7 +91,7 @@ export function readOptions<T extends OptionReader[]>(...optionReaders: [...T]):
   }
 
   // oxlint-disable-next-line eslint/no-unmodified-loop-condition
-  while (arg) {
+  while (arg !== undefined) {
     if (isOption(arg)) {
       [arg, optionEqValue] = splitOption(arg)
       optionResult = readOption(removePrefix(arg), read, options)
