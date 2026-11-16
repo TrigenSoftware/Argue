@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.2.1](https://github.com/TrigenSoftware/Argue/compare/v3.2.0...v3.2.1) (2026-11-16)
+
+### Bug Fixes
+
+* accept empty string arguments in `read` and `readOptions` ([#409](https://github.com/TrigenSoftware/Argue/issues/409)) ([5d3cae3](https://github.com/TrigenSoftware/Argue/commit/5d3cae3bce451472a91016f229e644ae270bc97b)), closes [#408](https://github.com/TrigenSoftware/Argue/issues/408)
+
 ## [3.2.0](https://github.com/TrigenSoftware/Argue/compare/v3.1.0...v3.2.0) (2026-09-01)
 
 ### Features
