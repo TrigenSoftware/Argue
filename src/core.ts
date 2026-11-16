@@ -10,7 +10,7 @@ import { findArgName } from './utils.js'
 export function read() {
   const value = argv.shift()
 
-  if (!value) {
+  if (value === undefined) {
     throw new Error('Unexpected end of arguments')
   }
 

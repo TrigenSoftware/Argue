@@ -100,6 +100,24 @@ describe('options', () => {
       })
     })
 
+    it('should read empty value from next arg', () => {
+      setArgs('--input', '')
+
+      expect(readOptions(option('input', String))).toEqual({
+        input: ''
+      })
+      expect(argv).toEqual([])
+    })
+
+    it('should read options after empty arg', () => {
+      setArgs('', '--input', 'test.ts')
+
+      expect(readOptions(option('input', String))).toEqual({
+        input: 'test.ts'
+      })
+      expect(argv).toEqual([''])
+    })
+
     it('should throw error on inline value for boolean option', () => {
       setArgs('--verbose=true')
 

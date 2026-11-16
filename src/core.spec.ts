@@ -19,6 +19,12 @@ describe('core', () => {
     it('should throw error when unexpected end', () => {
       expect(() => core.read()).toThrow()
     })
+
+    it('should read empty arg', () => {
+      setArgs('')
+
+      expect(core.read()).toBe('')
+    })
   })
 
   describe('rest', () => {
